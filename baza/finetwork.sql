@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 14, 2022 at 12:58 PM
+-- Generation Time: Dec 14, 2022 at 01:14 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -159,7 +159,15 @@ CREATE TABLE IF NOT EXISTS `tip_korisnika` (
   `id_tipa` int(11) NOT NULL AUTO_INCREMENT,
   `naziv` varchar(30) COLLATE utf8mb4_bin NOT NULL,
   PRIMARY KEY (`id_tipa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Dumping data for table `tip_korisnika`
+--
+
+INSERT INTO `tip_korisnika` (`id_tipa`, `naziv`) VALUES
+(1, 'Administrator'),
+(2, 'Student');
 
 -- --------------------------------------------------------
 
