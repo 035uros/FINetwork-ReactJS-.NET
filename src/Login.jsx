@@ -11,27 +11,32 @@ export const Login = (props) => {
 
   return (
     <div className="auth-form-container">
-      <h2>Login</h2>
+      <h2>Пријава</h2>
       <form className="login-form" onSubmit={handleSubmit}>
-        <label htmlFor="email">email</label>
+        <label htmlFor="email">Е-маил</label>
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           type="email"
-          placeholder="youremail@gmail.com"
+          placeholder="vasmail@gmail.com"
         ></input>
-        <label htmlFor="email">password</label>
+        <label htmlFor="email">Лозинка</label>
         <input
           value={pass}
           onChange={(e) => setPass(e.target.value)}
           type="password"
           placeholder="********"
         ></input>
-        <button type="submit">Log In</button>
+        <button type="submit">Пријави се</button>
       </form>
-      <button className="link-btn" onClick={() => props.onFormSwitch('register')}>
-        Don't have an account? Register here
+      <button
+        className="link-btn"
+        onClick={() => props.onFormSwitch("register")}
+      >
+        Немаш налог? Региструј се овде.
       </button>
     </div>
   );
+};
+
 };
