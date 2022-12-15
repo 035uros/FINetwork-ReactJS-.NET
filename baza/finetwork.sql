@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 14, 2022 at 01:14 PM
+-- Generation Time: Dec 15, 2022 at 04:16 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `korisnik` (
   `ime` varchar(20) COLLATE utf8mb4_bin NOT NULL,
   `prezime` varchar(30) COLLATE utf8mb4_bin NOT NULL,
   `email` varchar(30) COLLATE utf8mb4_bin NOT NULL,
+  `lozinka` varchar(30) COLLATE utf8mb4_bin NOT NULL,
   `id_smera` int(11) DEFAULT NULL,
   `godina` int(11) DEFAULT NULL,
   `stepen` varchar(30) COLLATE utf8mb4_bin DEFAULT NULL,
