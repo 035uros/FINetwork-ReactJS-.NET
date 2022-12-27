@@ -29,7 +29,7 @@ label {
   padding: 0.25rem 0;
 }
 
-input {
+input, select {
   margin: 0.5rem 0;
   padding: 1rem;
   border: none;
@@ -49,4 +49,59 @@ button {
   background: none;
   color: white;
   text-decoration: underline;
+}
+
+/*div klasa koja obuhvata sve elemente stranice FAJL ProfuleSetUp*/
+.profil-main{
+  padding: 3rem;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 20px;
+  opacity: 100%;
+  animation-name: pojavljivanje;
+  animation-duration: 5s;
+}
+/*animacija pojavljivanja FAJL ProfuleSetUp*/
+@keyframes pojavljivanje {
+  0%   {opacity: 0%;}
+  25%  {opacity: 80%;}
+  50%  {opacity: 95%;}
+  100% {opacity: 100%;}
+}
+
+/*klasa forme FAJL ProfuleSetUp*/
+.profile-edit{
+  padding: 5%;
+  columns: 3;
+  column-width: 30%;
+  column-gap: 10%;
+  
+}
+/*siriana polja, iz nekog razloga je select kraci od inputa.. FAJL ProfuleSetUp*/
+.profile-edit input, select {
+  width: 100%;
+}
+
+/*manji ekrani = jedna kolona FAJL ProfuleSetUp*/
+@media screen and (max-width: 1000px) { 
+  .profile-edit {
+    padding: 3rem;
+    columns: 1;
+    column-width: 300px;
+  }
+
+  .profile-edit input, select {
+    margin-bottom: 2em;
+    width: 100%;
+    max-width: 300px;
+    align-items: center;
+  }
+}
+/*sirina dugmeta FAJL ProfuleSetUp*/
+.profil-dugme{
+  width: 30%;
+}
+/*Custom placeholder za upload profilne slike FAJL ProfuleSetUp*/
+.image-upload>input {
+  display: none;
 }
