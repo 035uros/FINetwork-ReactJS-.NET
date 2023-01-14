@@ -80,10 +80,6 @@ button {
 /*siriana polja, iz nekog razloga je select kraci od inputa.. FAJL ProfuleSetUp*/
 .profile-edit input, select {
   width: 100%;
-  -ms-box-sizing:content-box;
-    -moz-box-sizing:content-box;
-    box-sizing:content-box;
-    -webkit-box-sizing:content-box;
 }
 
 /*manji ekrani = jedna kolona FAJL ProfuleSetUp*/

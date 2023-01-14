@@ -1,25 +1,44 @@
-import React, { useState } from "react";
+import React, {Fragment, useState } from "react";
+import { useNavigate  } from "react-router-dom";
+import axios from "axios";
 
 export const Login = (props) => {
-  const [email, setEmail] = useState("");
+  const [user, setUser] = useState('');
   const [pass, setPass] = useState("");
+  let navigate = useNavigate ();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
+    const data = {
+      KorisnickoIme: user,
+      Lozinka: pass
+    };
+
+    const url ='https://localhost:44357/api/Fin/Login';
+    axios.post(url, data).then((result)=>{
+      if(result.data == 'Пријава успешна'){
+        navigate("/profilesetup", {
+          state: {
+            authorized: true,
+          }
+        });
+      }else{
+        alert(result.data);
+      }
+    }).catch((error)=>{
+      alert(error);
+    })
   };
 
   return (
+    <Fragment>
+    <div className="App">
     <div className="auth-form-container">
       <h2>Пријава</h2>
       <form className="login-form" onSubmit={handleSubmit}>
-        <label htmlFor="email">Е-маил</label>
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="vasmail@gmail.com"
-        ></input>
+      <label htmlFor="user">Корисничко ме</label>
+            <input value ={user} onChange ={(e) => setUser(e.target.value)}placeholder="korisnicko_ime" id="user" name="user" required/> 
+
         <label htmlFor="email">Лозинка</label>
         <input
           value={pass}
@@ -31,11 +50,13 @@ export const Login = (props) => {
       </form>
       <button
         className="link-btn"
-        onClick={() => props.onFormSwitch("register")}
+        onClick={() => {navigate("/register")}}
       >
         Немаш налог? Региструј се овде.
       </button>
     </div>
+    </div>
+    </Fragment>
   );
 };
 

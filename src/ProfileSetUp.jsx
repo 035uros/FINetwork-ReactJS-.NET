@@ -1,6 +1,9 @@
 import React, {useState} from "react";
+import { Navigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-export const ProfileSetUp = (props) => {
+export const ProfileSetUp = () => {
+
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
@@ -19,13 +22,21 @@ export const ProfileSetUp = (props) => {
     const [pol, setPol] = useState('');
     const [slika, setSlika] = useState('');
 
+    /*const location = useLocation();*/
+
     const handleSubmit = (e) => {        
             e.preventDefault();
             console.log(email);
         }
 
-    return(
+        /*let authorized = location.state.authorized;
         
+        if(!authorized){
+            return (<Navigate to="/login"/>)
+        }*/
+
+    return(
+        <div className="App">
         <div className="profil-main"> 
         <h2>Профил</h2> 
         <form name="profil" className="profile-edit" id="profil" onSubmit={handleSubmit}>
@@ -137,6 +148,7 @@ export const ProfileSetUp = (props) => {
             
         </form>
         <button className="profil-dugme" type="submit" form="profil">Потврди</button>
+        </div>
         </div>
     )
 }
