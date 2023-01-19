@@ -1,5 +1,5 @@
 import React, {Fragment, useState } from "react";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate, createSearchParams  } from "react-router-dom";
 import axios from "axios";
 
 export const Login = (props) => {
@@ -13,14 +13,16 @@ export const Login = (props) => {
       KorisnickoIme: user,
       Lozinka: pass
     };
-
+    
     const url ='https://localhost:44357/api/Fin/Login';
     axios.post(url, data).then((result)=>{
       if(result.data == 'Пријава успешна'){
-        navigate("/profilesetup", {
-          state: {
-            authorized: true,
-          }
+        navigate({
+          pathname: "/profilesetup", 
+          search: createSearchParams({
+            kime : user,
+            authorized: "true"
+          }).toString()
         });
       }else{
         alert(result.data);

@@ -74,8 +74,7 @@ button {
   padding: 5%;
   columns: 3;
   column-width: 30%;
-  column-gap: 10%;
-  
+  column-gap: 10%; 
 }
 /*siriana polja, iz nekog razloga je select kraci od inputa.. FAJL ProfuleSetUp*/
 .profile-edit input, select {
@@ -83,7 +82,7 @@ button {
   -ms-box-sizing:content-box;
   -moz-box-sizing:content-box;
   box-sizing:content-box;
-  webkit-box-sizing:content-box;
+  -webkit-box-sizing:content-box;
 }
 
 /*manji ekrani = jedna kolona FAJL ProfuleSetUp*/
@@ -108,4 +107,10 @@ button {
 /*Custom placeholder za upload profilne slike FAJL ProfuleSetUp*/
 .image-upload>input {
   display: none;
+}
+.image-preview{
+  width: 120px;
+  height: 120px;
+  border-radius: 40%;
+  object-fit: cover;
 }
