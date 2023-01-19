@@ -20,6 +20,8 @@
 
 .article {
   background-image: linear-gradient(79deg, #00a3d4, #76dcf2 48%, #c2ecf2);
+  height: 100vh;
+  padding-top: 1.5rem;
 }
 
 .article .details {
