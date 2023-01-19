@@ -6,6 +6,11 @@ import axios from "axios";
 import "../src/Components/LandingPage.css";
 
 export const LandingPage = (props) => {
+  let menu = document.querySelector("#menu-btn");
+  let navbar = document.querySelector(".header .navbar");
+
+  let searchBtn = document.querySelector("#search-btn");
+  let searchBar = document.querySelector(".search-bar-container");
   return (
     <div>
       <nav class="navbar nav-1">
@@ -13,11 +18,6 @@ export const LandingPage = (props) => {
           <a href="ProfileSetUp" class="logo">
             <i class="fas fa-house"></i>Профил
           </a>
-          <div className="searchbar">
-            <input type="text" />
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-
           <ul>
             <li>
               <a href="#">
@@ -27,7 +27,13 @@ export const LandingPage = (props) => {
           </ul>
         </section>
       </nav>
+
       <div className="container">
+        <form action="" class="search-bar-container">
+          <input type="search" id="search-bar" placeholder="search here..." />
+          <label for="search-bar" class="fas fa-search"></label>
+        </form>
+
         <div className="box-container">
           <div className="box">
             <h3>Математика 3</h3>
