@@ -93,6 +93,9 @@ export const Article = (props) => {
           <a href="#" className="btn">
             Пошаљи поруку
           </a>
+          <a href="LandingPage" className="btn">
+            Назад
+          </a>
         </div>
       </section>
     </div>
