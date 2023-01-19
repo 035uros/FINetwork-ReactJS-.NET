@@ -6,9 +6,8 @@ import UserProfile from '../UserProfile';
 export const Login = (props) => {
   const [user, setUser] = useState('');
   const [pass, setPass] = useState("");
-  
-  let navigate = useNavigate ();
 
+  let navigate = useNavigate ();
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
