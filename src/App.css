@@ -4,10 +4,15 @@
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  color:white;
-  background-image: linear-gradient(79deg, #00a3d4, #76dcf2 48%, #c2ecf2 );
+  color: white;
+  background-image: linear-gradient(79deg, #00a3d4, #76dcf2 48%, #c2ecf2);
 }
 
+.auth-form-container {
+  padding: 3rem;
+  border: 1px solid white;
+  border-radius: 10px;
+}
 
 .auth-form-container,
 .login-form,
@@ -16,20 +21,13 @@
   flex-direction: column;
 }
 
-@media screen and (min-width: 600px) {
-  .auth-form-container {
-    padding: 3rem;
-    border: 1px solid white;
-    border-radius: 10px;
-  }
-}
-
 label {
   text-align: left;
   padding: 0.25rem 0;
 }
 
-input, select {
+input,
+select {
   margin: 0.5rem 0;
   padding: 1rem;
   border: none;
@@ -52,7 +50,7 @@ button {
 }
 
 /*div klasa koja obuhvata sve elemente stranice FAJL ProfuleSetUp*/
-.profil-main{
+.profil-main {
   padding: 3rem;
   border: 1px solid white;
   border-radius: 10px;
@@ -63,54 +61,80 @@ button {
 }
 /*animacija pojavljivanja FAJL ProfuleSetUp*/
 @keyframes pojavljivanje {
-  0%   {opacity: 0%;}
-  25%  {opacity: 80%;}
-  50%  {opacity: 95%;}
-  100% {opacity: 100%;}
+  0% {
+    opacity: 0%;
+  }
+  25% {
+    opacity: 80%;
+  }
+  50% {
+    opacity: 95%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 /*klasa forme FAJL ProfuleSetUp*/
-.profile-edit{
+.profile-edit {
   padding: 5%;
   columns: 3;
   column-width: 30%;
-  column-gap: 10%; 
+  column-gap: 10%;
 }
 /*siriana polja, iz nekog razloga je select kraci od inputa.. FAJL ProfuleSetUp*/
-.profile-edit input, select {
+.profile-edit input,
+select {
   width: 100%;
-  -ms-box-sizing:content-box;
-  -moz-box-sizing:content-box;
-  box-sizing:content-box;
-  -webkit-box-sizing:content-box;
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
 }
 
-/*manji ekrani = jedna kolona FAJL ProfuleSetUp*/
-@media screen and (max-width: 1000px) { 
-  .profile-edit {
-    padding: 3rem;
-    columns: 1;
-    column-width: 300px;
-  }
-
-  .profile-edit input, select {
-    margin-bottom: 2em;
-    width: 100%;
-    max-width: 300px;
-    align-items: center;
-  }
-}
 /*sirina dugmeta FAJL ProfuleSetUp*/
-.profil-dugme{
+.profil-dugme {
   width: 30%;
 }
 /*Custom placeholder za upload profilne slike FAJL ProfuleSetUp*/
-.image-upload>input {
+.image-upload > input {
   display: none;
 }
-.image-preview{
+.image-preview {
   width: 120px;
   height: 120px;
   border-radius: 40%;
   object-fit: cover;
+}
+
+/*.profile-edit {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 0;
+}*/
+
+.inputBox {
+  text-align: left;
+}
+
+@media screen and (max-width: 1000px) {
+  .profile-edit {
+    display: grid;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .auth-form-container {
+    padding: 3rem;
+    border: 1px solid white;
+    border-radius: 10px;
+  }
+
+  .profile-edit {
+    display: grid;
+    padding-right: 3rem;
+  }
+  .profil-dugme {
+    width: 60%;
+  }
 }
