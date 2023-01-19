@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import "../Components/Article.css";
 import "../Components/LandingPage.css";
+
+
 export const Article = (props) => {
+  let navigate = useNavigate ();
   return (
     <div>
       <nav class="navbar nav-1">
         <section class="flex">
-          <a href="ProfileSetUp" class="logo">
+          <a onClick={() => {
+            navigate({ pathname: "/profilesetup" });
+            }} 
+            class="logo">
             <i class="fas fa-house"></i>Профил
           </a>
           <ul>

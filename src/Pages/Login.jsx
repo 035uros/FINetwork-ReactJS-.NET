@@ -1,6 +1,7 @@
 import React, {Fragment, useState } from "react";
-import { useNavigate, createSearchParams  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import UserProfile from '../UserProfile';
 
 export const Login = (props) => {
   const [user, setUser] = useState('');
@@ -17,12 +18,10 @@ export const Login = (props) => {
     const url ='https://localhost:44357/api/Fin/Login';
     axios.post(url, data).then((result)=>{
       if(result.data === 'Пријава успешна'){
+        UserProfile.setUser(user);
+        UserProfile.setAuth();
         navigate({
-          pathname: "/profilesetup", 
-          search: createSearchParams({
-            kime : user,
-            authorized: "true"
-          }).toString()
+          pathname: "/landingpage"
         });
       }else{
         alert(result.data);

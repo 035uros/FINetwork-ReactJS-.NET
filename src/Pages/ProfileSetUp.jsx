@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import UserProfile from '../UserProfile';
 
 export const ProfileSetUp = () => {
-
-  const [searchparam] = useSearchParams();
   let navigate = useNavigate();
-  if (searchparam.get("authorized") !== "true") {
+  if (UserProfile.getUser("authorized") !== "true") {
     navigate({
       pathname: "/login",
     });
@@ -45,7 +44,7 @@ export const ProfileSetUp = () => {
 
   function getData() {
     const data = {
-      KorisnickoIme: searchparam.get("kime"),
+      KorisnickoIme: UserProfile.getUser("user_name"),
     };
     const url = "https://localhost:44357/api/Fin/ProfileSetUp";
     axios
@@ -110,7 +109,7 @@ export const ProfileSetUp = () => {
       e.preventDefault();
       console.log(uni);
       const data = {
-        KorisnickoIme: searchparam.get("kime"),
+        KorisnickoIme: UserProfile.getUser("user_name"),
         Ime: name,
         Prezime: lastname,
         Email: email,
@@ -158,11 +157,12 @@ export const ProfileSetUp = () => {
                 setImage(null);
               }}
               src={preview}
+              alt={name}
             />
           ) : (
             <div class="image-upload">
               <label for="file-input">
-                <img src="https://icons.iconarchive.com/icons/bokehlicia/captiva/128/multimedia-photo-manager-icon.png" />
+                <img src="https://icons.iconarchive.com/icons/bokehlicia/captiva/128/multimedia-photo-manager-icon.png" alt="upload" />
               </label>
               <input
                 accept="image/*"
