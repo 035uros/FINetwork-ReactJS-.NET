@@ -1,15 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 
 * {
-  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  text-decoration: none;
-  text-transform: capitalize;
-  transition: 0.2s linear;
 }
 
 .container {
@@ -20,8 +14,8 @@
 }
 
 .navbar.nav-1 .flex {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .navbar.nav-1 {
@@ -35,7 +29,7 @@
 }
 
 .navbar .flex .logo {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   color: #fff;
 }
 
@@ -91,14 +85,14 @@
 }
 
 .navbar .flex ul li ul {
-  position: absolute;
+  /*position: absolute;*/
   width: 17rem;
   left: 0;
 }
 
-.navbar .flex ul li ul li {
+/*.navbar .flex ul li ul li {
   width: 100%;
-}
+}*/
 
 .navbar .flex ul li ul li a {
   display: none;
@@ -106,6 +100,29 @@
 
 .navbar .flex ul li:hover ul li a {
   display: block;
+}
+
+.search-bar-container {
+  /*position: absolute;*/
+  /*top: 100%;*/
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+}
+.search-bar-container #search-bar {
+  width: 100%;
+  padding: 1rem;
+  text-transform: none;
+  color: #333;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+.search-bar-container label {
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 1.5rem;
 }
 
 .container .box-container {
@@ -154,8 +171,15 @@
   transform: scale(1.03);
 }
 
+@media (max-width: 930px) {
+  html {
+    font-size: 55%;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 20px;
   }
 }
+
