@@ -13,11 +13,6 @@ export const Article = (props) => {
           <a href="ProfileSetUp" class="logo">
             <i class="fas fa-house"></i>Профил
           </a>
-          <div className="searchbar">
-            <input type="text" />
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-
           <ul>
             <li>
               <a href="#">
