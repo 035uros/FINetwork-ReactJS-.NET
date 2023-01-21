@@ -23,11 +23,21 @@ var UserProfile = (function() {
     var setAuth = function() {
         document.cookie = "authorized = true"; // Also set this in cookie/localStorage
     };
+
+    var setUni = function(uni) {
+      document.cookie = "uni = " + uni; // Also set this in cookie/localStorage
+  };
+
+  var setSmer = function(smer) {
+    document.cookie = "smer = " + smer; // Also set this in cookie/localStorage
+};
   
     return {
       getUser: getUser,
       setUser: setUser,
-      setAuth: setAuth
+      setAuth: setAuth,
+      setUni: setUni,
+      setSmer: setSmer
     }
   
   })();
