@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [finetwork]    Script Date: 14-Jan-23 8:34:08 PM ******/
+/****** Object:  Database [finetwork]    Script Date: 21-Jan-23 11:30:26 AM ******/
 CREATE DATABASE [finetwork]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [finetwork] SET QUERY_STORE = OFF
 GO
 USE [finetwork]
 GO
-/****** Object:  Table [dbo].[konverzacija]    Script Date: 14-Jan-23 8:34:08 PM ******/
+/****** Object:  Table [dbo].[konverzacija]    Script Date: 21-Jan-23 11:30:26 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -98,38 +98,39 @@ CREATE TABLE [dbo].[konverzacija](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[korisnik]    Script Date: 14-Jan-23 8:34:08 PM ******/
+/****** Object:  Table [dbo].[korisnik]    Script Date: 21-Jan-23 11:30:26 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[korisnik](
-	[id_tipa] [int] NOT NULL,
-	[ime] [varchar](20) NOT NULL,
-	[prezime] [varchar](30) NOT NULL,
-	[email] [varchar](30) NOT NULL,
-	[lozinka] [varchar](30) NOT NULL,
-	[id_smera] [int] NULL,
-	[godina] [int] NULL,
-	[stepen] [varchar](30) NULL,
-	[pol] [varchar](2) NULL,
-	[slika] [text] NULL,
-	[pusac] [varchar](20) NULL,
-	[muzika] [varchar](20) NULL,
-	[pauze] [varchar](20) NULL,
-	[obezbedjeno_mesto] [varchar](20) NULL,
-	[online] [int] NULL,
-	[vise_ljudi] [varchar](20) NULL,
-	[verifikovan] [varchar](20) NOT NULL,
 	[korisnik_id] [int] IDENTITY(1,1) NOT NULL,
-	[korisnicko_ime] [varchar](255) NULL,
- CONSTRAINT [PK_korisnik] PRIMARY KEY CLUSTERED 
+	[id_tipa] [int] NULL,
+	[korisnicko_ime] [nvarchar](255) NULL,
+	[lozinka] [nvarchar](255) NULL,
+	[ime] [nvarchar](255) NULL,
+	[prezime] [nvarchar](255) NULL,
+	[slika] [text] NULL,
+	[email] [varchar](255) NULL,
+	[id_univerziteta] [int] NULL,
+	[id_smera] [int] NULL,
+	[pol] [nvarchar](255) NULL,
+	[godina] [nvarchar](255) NULL,
+	[stepen] [nvarchar](255) NULL,
+	[pusac] [nvarchar](255) NULL,
+	[muzika] [nvarchar](255) NULL,
+	[pauze] [nvarchar](255) NULL,
+	[obezbedjeno_mesto] [nvarchar](255) NULL,
+	[online] [nvarchar](255) NULL,
+	[vise_ljudi] [nvarchar](255) NULL,
+	[verifikovan] [int] NULL,
+PRIMARY KEY CLUSTERED 
 (
 	[korisnik_id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[oglas]    Script Date: 14-Jan-23 8:34:08 PM ******/
+/****** Object:  Table [dbo].[oglas]    Script Date: 21-Jan-23 11:30:26 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -145,38 +146,38 @@ CREATE TABLE [dbo].[oglas](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[poruka]    Script Date: 14-Jan-23 8:34:08 PM ******/
+/****** Object:  Table [dbo].[poruka]    Script Date: 21-Jan-23 11:30:26 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[poruka](
-	[id_poruke] [int] NOT NULL,
-	[vreme] [datetime] NOT NULL,
-	[id_korisnika] [int] NOT NULL,
-	[id_konverzacije] [int] NOT NULL,
-	[poruka] [text] NOT NULL,
- CONSTRAINT [PK_poruka] PRIMARY KEY CLUSTERED 
+	[id_poruke] [int] IDENTITY(1,1) NOT NULL,
+	[vreme] [datetime] NULL,
+	[id_korisnika] [int] NULL,
+	[id_konverzacije] [int] NULL,
+	[poruka] [ntext] NULL,
+PRIMARY KEY CLUSTERED 
 (
 	[id_poruke] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[predmet]    Script Date: 14-Jan-23 8:34:08 PM ******/
+/****** Object:  Table [dbo].[predmet]    Script Date: 21-Jan-23 11:30:26 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[predmet](
-	[id_predmeta] [int] NOT NULL,
-	[naziv] [varchar](50) NOT NULL,
- CONSTRAINT [PK_predmet] PRIMARY KEY CLUSTERED 
+	[id_predmeta] [int] IDENTITY(1,1) NOT NULL,
+	[naziv] [nvarchar](255) NOT NULL,
+PRIMARY KEY CLUSTERED 
 (
 	[id_predmeta] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[predmeti_smera]    Script Date: 14-Jan-23 8:34:08 PM ******/
+/****** Object:  Table [dbo].[predmeti_smera]    Script Date: 21-Jan-23 11:30:26 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -191,22 +192,22 @@ CREATE TABLE [dbo].[predmeti_smera](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[smer]    Script Date: 14-Jan-23 8:34:08 PM ******/
+/****** Object:  Table [dbo].[smer]    Script Date: 21-Jan-23 11:30:26 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[smer](
-	[id_smera] [int] NOT NULL,
-	[id_univerziteta] [int] NOT NULL,
-	[naziv] [varchar](50) NOT NULL,
- CONSTRAINT [PK_smer] PRIMARY KEY CLUSTERED 
+	[id_smera] [int] IDENTITY(1,1) NOT NULL,
+	[id_univerziteta] [int] NULL,
+	[naziv] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
 (
 	[id_smera] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tip_korisnika]    Script Date: 14-Jan-23 8:34:08 PM ******/
+/****** Object:  Table [dbo].[tip_korisnika]    Script Date: 21-Jan-23 11:30:26 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -220,92 +221,71 @@ CREATE TABLE [dbo].[tip_korisnika](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[univerzitet]    Script Date: 14-Jan-23 8:34:08 PM ******/
+/****** Object:  Table [dbo].[univerzitet]    Script Date: 21-Jan-23 11:30:26 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[univerzitet](
-	[id_univerziteta] [int] NOT NULL,
-	[naziv] [varchar](30) NOT NULL,
- CONSTRAINT [PK_univerzitet] PRIMARY KEY CLUSTERED 
+	[id_univerziteta] [int] IDENTITY(1,1) NOT NULL,
+	[naziv] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
 (
 	[id_univerziteta] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [IX_korisnik]    Script Date: 14-Jan-23 8:34:08 PM ******/
-CREATE UNIQUE NONCLUSTERED INDEX [IX_korisnik] ON [dbo].[korisnik]
-(
-	[email] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [IX_korisnik_1]    Script Date: 14-Jan-23 8:34:08 PM ******/
-CREATE UNIQUE NONCLUSTERED INDEX [IX_korisnik_1] ON [dbo].[korisnik]
-(
-	[korisnicko_ime] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-ALTER TABLE [dbo].[korisnik] ADD  DEFAULT (NULL) FOR [id_smera]
-GO
-ALTER TABLE [dbo].[korisnik] ADD  DEFAULT (NULL) FOR [godina]
-GO
-ALTER TABLE [dbo].[korisnik] ADD  DEFAULT (NULL) FOR [stepen]
-GO
-ALTER TABLE [dbo].[korisnik] ADD  DEFAULT (NULL) FOR [pol]
-GO
-ALTER TABLE [dbo].[korisnik] ADD  DEFAULT (NULL) FOR [slika]
-GO
-ALTER TABLE [dbo].[korisnik] ADD  DEFAULT (NULL) FOR [pusac]
-GO
-ALTER TABLE [dbo].[korisnik] ADD  DEFAULT (NULL) FOR [muzika]
-GO
-ALTER TABLE [dbo].[korisnik] ADD  DEFAULT (NULL) FOR [pauze]
-GO
-ALTER TABLE [dbo].[korisnik] ADD  DEFAULT (NULL) FOR [obezbedjeno_mesto]
-GO
-ALTER TABLE [dbo].[korisnik] ADD  DEFAULT (NULL) FOR [online]
-GO
-ALTER TABLE [dbo].[korisnik] ADD  DEFAULT (NULL) FOR [vise_ljudi]
-GO
-ALTER TABLE [dbo].[konverzacija]  WITH CHECK ADD FOREIGN KEY([id_korisnika1])
+ALTER TABLE [dbo].[konverzacija]  WITH CHECK ADD  CONSTRAINT [FK_konverzacija_korisnik] FOREIGN KEY([id_korisnika1])
 REFERENCES [dbo].[korisnik] ([korisnik_id])
 GO
-ALTER TABLE [dbo].[konverzacija]  WITH CHECK ADD FOREIGN KEY([id_korisnika2])
+ALTER TABLE [dbo].[konverzacija] CHECK CONSTRAINT [FK_konverzacija_korisnik]
+GO
+ALTER TABLE [dbo].[konverzacija]  WITH CHECK ADD  CONSTRAINT [FK_konverzacija_korisnik1] FOREIGN KEY([id_korisnika2])
 REFERENCES [dbo].[korisnik] ([korisnik_id])
 GO
-ALTER TABLE [dbo].[konverzacija]  WITH CHECK ADD FOREIGN KEY([id_oglasa])
-REFERENCES [dbo].[oglas] ([id_oglasa])
+ALTER TABLE [dbo].[konverzacija] CHECK CONSTRAINT [FK_konverzacija_korisnik1]
 GO
-ALTER TABLE [dbo].[oglas]  WITH CHECK ADD FOREIGN KEY([id_korisnika])
+ALTER TABLE [dbo].[korisnik]  WITH CHECK ADD  CONSTRAINT [FK_korisnik_tip_korisnika] FOREIGN KEY([id_tipa])
+REFERENCES [dbo].[tip_korisnika] ([id_tipa])
+GO
+ALTER TABLE [dbo].[korisnik] CHECK CONSTRAINT [FK_korisnik_tip_korisnika]
+GO
+ALTER TABLE [dbo].[oglas]  WITH CHECK ADD  CONSTRAINT [FK_oglas_korisnik] FOREIGN KEY([id_korisnika])
 REFERENCES [dbo].[korisnik] ([korisnik_id])
 GO
-ALTER TABLE [dbo].[oglas]  WITH CHECK ADD FOREIGN KEY([id_predmeta])
+ALTER TABLE [dbo].[oglas] CHECK CONSTRAINT [FK_oglas_korisnik]
+GO
+ALTER TABLE [dbo].[oglas]  WITH CHECK ADD  CONSTRAINT [FK_oglas_predmet] FOREIGN KEY([id_predmeta])
 REFERENCES [dbo].[predmet] ([id_predmeta])
 GO
-ALTER TABLE [dbo].[poruka]  WITH CHECK ADD FOREIGN KEY([id_konverzacije])
+ALTER TABLE [dbo].[oglas] CHECK CONSTRAINT [FK_oglas_predmet]
+GO
+ALTER TABLE [dbo].[poruka]  WITH CHECK ADD  CONSTRAINT [FK_poruka_konverzacija] FOREIGN KEY([id_konverzacije])
 REFERENCES [dbo].[konverzacija] ([id_konverzacije])
 GO
-ALTER TABLE [dbo].[poruka]  WITH CHECK ADD FOREIGN KEY([id_korisnika])
+ALTER TABLE [dbo].[poruka] CHECK CONSTRAINT [FK_poruka_konverzacija]
+GO
+ALTER TABLE [dbo].[poruka]  WITH CHECK ADD  CONSTRAINT [FK_poruka_korisnik] FOREIGN KEY([id_korisnika])
 REFERENCES [dbo].[korisnik] ([korisnik_id])
 GO
-ALTER TABLE [dbo].[predmeti_smera]  WITH CHECK ADD FOREIGN KEY([id_predmeta])
+ALTER TABLE [dbo].[poruka] CHECK CONSTRAINT [FK_poruka_korisnik]
+GO
+ALTER TABLE [dbo].[predmeti_smera]  WITH CHECK ADD  CONSTRAINT [FK_predmeti_predmet] FOREIGN KEY([id_predmeta])
 REFERENCES [dbo].[predmet] ([id_predmeta])
 GO
-ALTER TABLE [dbo].[predmeti_smera]  WITH CHECK ADD FOREIGN KEY([id_smera])
+ALTER TABLE [dbo].[predmeti_smera] CHECK CONSTRAINT [FK_predmeti_predmet]
+GO
+ALTER TABLE [dbo].[predmeti_smera]  WITH CHECK ADD  CONSTRAINT [FK_smer_smer] FOREIGN KEY([id_smera])
 REFERENCES [dbo].[smer] ([id_smera])
 GO
-ALTER TABLE [dbo].[smer]  WITH CHECK ADD FOREIGN KEY([id_univerziteta])
+ALTER TABLE [dbo].[predmeti_smera] CHECK CONSTRAINT [FK_smer_smer]
+GO
+ALTER TABLE [dbo].[smer]  WITH CHECK ADD  CONSTRAINT [FK_univerzitet_univerzitet] FOREIGN KEY([id_univerziteta])
 REFERENCES [dbo].[univerzitet] ([id_univerziteta])
 GO
-ALTER TABLE [dbo].[smer]  WITH CHECK ADD FOREIGN KEY([id_univerziteta])
-REFERENCES [dbo].[univerzitet] ([id_univerziteta])
+ALTER TABLE [dbo].[smer] CHECK CONSTRAINT [FK_univerzitet_univerzitet]
 GO
-/****** Object:  StoredProcedure [dbo].[app_Login]    Script Date: 14-Jan-23 8:34:08 PM ******/
+/****** Object:  StoredProcedure [dbo].[app_Login]    Script Date: 21-Jan-23 11:30:26 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -317,12 +297,12 @@ BEGIN
 	SELECT * from korisnik WHERE @korisnicko_ime=@korisnicko_ime AND lozinka=@lozinka;
 END
 GO
-/****** Object:  StoredProcedure [dbo].[app_Reg]    Script Date: 14-Jan-23 8:34:08 PM ******/
+/****** Object:  StoredProcedure [dbo].[app_Reg]    Script Date: 21-Jan-23 11:30:26 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROC [dbo].[app_Reg]( @korisnicko_ime VARCHAR(255), @ime VARCHAR(100), @prezime VARCHAR(100), @email VARCHAR(100), @lozinka VARCHAR(30))
+CREATE PROC [dbo].[app_Reg]( @korisnicko_ime NVARCHAR(255), @ime NVARCHAR(255), @prezime NVARCHAR(255), @email VARCHAR(100), @lozinka NVARCHAR(255))
 AS 
 BEGIN
 	INSERT INTO korisnik (id_tipa, korisnicko_ime, ime, prezime, email, lozinka, verifikovan) VALUES (2, @korisnicko_ime, @ime, @prezime, @email, @lozinka, 0);
