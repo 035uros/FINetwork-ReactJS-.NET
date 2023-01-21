@@ -6,18 +6,31 @@ import UserProfile from '../UserProfile';
 export const Login = (props) => {
   const [user, setUser] = useState('');
   const [pass, setPass] = useState("");
-
   let navigate = useNavigate ();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const data = {
       KorisnickoIme: user,
       Lozinka: pass
     };
+
+    function getUserData(data){
+      const url = "https://localhost:44357/api/Fin/Unismer";
+      axios
+        .post(url, data)
+        .then((result) => {
+          const userData = result.data.split("-");
+          UserProfile.setSmer(userData[0]);
+          UserProfile.setUni(userData[1]);
+        })
+    }
     
     const url ='https://localhost:44357/api/Fin/Login';
     axios.post(url, data).then((result)=>{
       if(result.data === 'Пријава успешна'){
+        getUserData(data);
         UserProfile.setUser(user);
         UserProfile.setAuth();
         navigate({

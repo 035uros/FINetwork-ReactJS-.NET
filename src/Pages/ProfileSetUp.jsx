@@ -107,16 +107,15 @@ export const ProfileSetUp = () => {
   const handleSubmit = (e) => {
     if (pass === checkPass) {
       e.preventDefault();
-      console.log(uni);
       const data = {
         KorisnickoIme: UserProfile.getUser("user_name"),
         Ime: name,
         Prezime: lastname,
         Email: email,
         Lozinka: pass,
-        IdSmera: smer,
+        IdSmera: parseInt(smer, 10),
         IdUniverziteta: parseInt(uni, 10),
-        Godina: parseInt(god, 10),
+        Godina: god,
         Pol: pol,
         Stepen: stepen,
         Slika: preview,
@@ -124,7 +123,7 @@ export const ProfileSetUp = () => {
         Muzika: muzika,
         Pauze: pauza,
         ObezbedjenoMesto: mesto,
-        Online: parseInt(online, 10),
+        Online: online,
         ViseLjudi: grupa,
       };
 
@@ -283,7 +282,7 @@ export const ProfileSetUp = () => {
               <option value="" disabled selected hidden>
                 Изаберите Ваш смер
               </option>
-              <option value="rtsi">
+              <option value="1">
                 Рачунарска техника и софтверско инжењерство
               </option>
               <option value="nes">Нешто друго из базе...</option>
