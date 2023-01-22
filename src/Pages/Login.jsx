@@ -68,7 +68,7 @@ export const Login = (props) => {
       <h2>Пријава</h2>
       <form className="login-form" onSubmit={handleSubmit}>
         <label htmlFor="user">Корисничко име</label>
-        <input value ={user} onChange ={(e) => setUser(e.target.value)}placeholder="korisnicko_ime" id="user" name="user" required/> 
+        <input value ={user} onChange ={(e) => setUser(e.target.value)} placeholder="korisnicko_ime" id="user" name="user" required/> 
 
         <label htmlFor="email">Лозинка</label>
         <input

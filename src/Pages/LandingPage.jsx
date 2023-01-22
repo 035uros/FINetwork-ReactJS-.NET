@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../Components/LandingPage.css";
 import "../Components/Article.css";
+import "../Components/chat.css";
 import UserProfile from '../UserProfile';
 
 export const LandingPage = (props) => {
@@ -19,6 +20,9 @@ export const LandingPage = (props) => {
   const [listaPredmeta, setlistaPredmeta] =useState([]);
   const [listaOglasa, setListaOglasa] =useState([]);
   const [article, setArticle] =useState([]);
+  const [idOglasa, setIdOglasa] = useState("");
+  const [idPrimaoca, setIdPrimaoca] = useState("");
+  const [msgText, setMsgText] = useState("");
 
   const onChange = (event) => {
     setSearchValue(event.target.value);
@@ -111,6 +115,7 @@ export const LandingPage = (props) => {
           const items= [];
           function oglasSet(item){
             const uniData2 = item.split("_");
+            setIdPrimaoca(uniData2[16]);
             items.push({
               naslov: uniData2[0],
               ime: uniData2[1],
@@ -141,10 +146,48 @@ export const LandingPage = (props) => {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {
       getArticle(oglasId);
+      setIdOglasa(oglasId)
       x.style.display = "block";
     } else {
       x.style.display = "none";
     }
+  }
+
+  function openForm(idOglasa) {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+
+  const handleSubmitChat = (e) => {
+    e.preventDefault();
+
+    const data = {
+      KorisnickoIme: UserProfile.getUser("user_name"),
+      IdPrimaoca: idPrimaoca,
+      IdOglasa: idOglasa,
+      Info: msgText
+    };  
+
+    console.log(data);
+    /*const url3 = "https://localhost:44357/api/Fin/Predmet";
+      axios
+      .post(url3, data)
+      .then((result) => {
+        const predmeti= [];
+        function predmetSet(item){
+          const uniData2 = item.split("_");
+          predmeti.push({
+            value: uniData2[1]
+         })
+        }
+        const predmetData = result.data.split(";");
+        predmetData.forEach(predmetSet);
+        setlistaPredmeta(predmeti);
+      });*/
+
   }
   return (
     <div>
@@ -226,7 +269,7 @@ export const LandingPage = (props) => {
           </div>
           <h3 class="title">Додатне информације:</h3>
           <p class="description"> {info} </p>
-          <a href="#/" className="btn"> Пошаљи поруку </a>
+          <a href="#/" value={idOglasa} onClick={() => openForm(idOglasa)} className="btn"> Пошаљи поруку </a>
           <a href="#/" onClick={showArticle} className="btn"> Назад </a>
         </div>
         </section>
@@ -260,13 +303,47 @@ export const LandingPage = (props) => {
             ))}
         </div>
         </form>
-        
+
         <div className="box-container">
           {listaOglasa.map(({ label, value, oglasid }) => (
             <div className="box"> <h3>{label}</h3> <p> {value} </p> <button value={oglasid} onClick={() => showArticle(oglasid)} className="btn"> Прикажи више </button> </div> 
         ))}        
         </div>
 
+            <div>
+            <button class="open-button" onClick={openForm}>Chat</button>
+
+            <div class="chat-popup" id="myForm">
+               <form onSubmit={handleSubmitChat} class="form-container">
+               <h1>Ћаскање</h1>
+
+               <div class="containerChat">
+  <img src="/w3images/bandmember.jpg" alt="Avatar" style={{width: "100%"}}/> 
+  <p>Hello. How are you today?</p>
+</div>
+
+<div class="containerChat darker">
+  <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style={{width: "100%"}}/>
+  <p>Hey! I'm fine. Thanks for asking!</p>
+</div>
+
+<div class="containerChat">
+  <img src="/w3images/bandmember.jpg" alt="Avatar" style={{width: "100%"}}/>
+  <p>Sweet! So, what do you wanna do today?</p>
+</div>
+
+<div class="containerChat darker">
+  <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style={{width: "100%"}}/>
+  <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+</div>
+
+                <textarea placeholder="Унеси поруку.." name="msg" value={msgText} onChange ={(e) => setMsgText(e.target.value)} required></textarea>
+
+                <button type="submit" class="btn">Пошаљи</button>
+                <button type="button" class="btn cancel" onClick={closeForm}>Затвори</button>
+              </form>
+            </div>
+            </div>
       </div>
     </div>
   );
