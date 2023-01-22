@@ -192,3 +192,29 @@
     padding: 20px;
   }
 }
+
+/*Search dropdown style*/
+.dropdown {
+  margin-top: 6rem;
+  position: absolute;
+  width: 50%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.dropdown:empty {
+  border: none;
+  box-shadow: none;
+}
+
+.dropdown-row {
+  cursor: pointer;
+  text-align: start;
+  margin: 2px 0;
+  padding: 5px;
+  padding-left: 15px;
+}
+
