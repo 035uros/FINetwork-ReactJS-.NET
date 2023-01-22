@@ -6,6 +6,8 @@ import UserProfile from '../UserProfile';
 export const Login = (props) => {
   const [user, setUser] = useState('');
   const [pass, setPass] = useState("");
+
+  const [alertText, setAlert] = useState("");
   let navigate = useNavigate ();
 
   const handleSubmit = (e) => {
@@ -37,21 +39,36 @@ export const Login = (props) => {
           pathname: "/landingpage"
         });
       }else{
-        alert(result.data);
+        setAlert(result.data);
+        var x = document.getElementById("myDIVe");
+        x.style.display = "block";
       }
     }).catch((error)=>{
-      alert(error);
+      setAlert(error);
+      var x = document.getElementById("myDIVe");
+      x.style.display = "block";
     })
   };
 
+  var close = document.getElementsByClassName("closebtn");
+  var i;
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+        }
+      }
+
   return (
     <Fragment>
-      <div className="App">
+    <div className="App">
     <div className="auth-form-container">
       <h2>Пријава</h2>
       <form className="login-form" onSubmit={handleSubmit}>
-      <label htmlFor="user">Корисничко име</label>
-            <input value ={user} onChange ={(e) => setUser(e.target.value)}placeholder="korisnicko_ime" id="user" name="user" required/> 
+        <label htmlFor="user">Корисничко име</label>
+        <input value ={user} onChange ={(e) => setUser(e.target.value)}placeholder="korisnicko_ime" id="user" name="user" required/> 
 
         <label htmlFor="email">Лозинка</label>
         <input
@@ -68,6 +85,15 @@ export const Login = (props) => {
       >
         Немаш налог? Региструј се овде.
       </button>
+      <div class="alert" id="myDIVe" style={{display: "none"}}>
+        <span class="closebtn">&times;</span>  
+        <strong>Упс!</strong> {alertText}
+      </div>
+
+      <div class="alert success" id="myDIVs" style={{display: "none"}}>
+        <span class="closebtn">&times;</span>  
+        <strong>Одлично!</strong> {alertText}
+      </div>
     </div>
     </div>
     </Fragment>

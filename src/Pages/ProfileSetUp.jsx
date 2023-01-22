@@ -11,6 +11,8 @@ export const ProfileSetUp = () => {
     });
   }
 
+  const [alertText, setAlert] = useState("");
+
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [name, setName] = useState("");
@@ -95,7 +97,9 @@ export const ProfileSetUp = () => {
         }
       })
       .catch((error) => {
-        alert(error);
+        setAlert(error);
+        var x = document.getElementById("myDIVe");
+        x.style.display = "block";
       });
   }
 
@@ -132,21 +136,49 @@ export const ProfileSetUp = () => {
         .post(url, data)
         .then((result) => {
           if (result.data === "Унос успешан") {
-            alert(result.data);
+            setAlert(result.data);
+            var x = document.getElementById("myDIVs");
+            x.style.display = "block";
           }
         })
         .catch((error) => {
-          alert(error);
+          setAlert(error);
+          var x = document.getElementById("myDIVe");
+          x.style.display = "block";
         });
     } else {
-      alert("Лозинке се не поклапају");
+      setAlert("Лозинке се не поклапају");
+      var x = document.getElementById("myDIVe");
+      x.style.display = "block";
     }
   };
+
+  var close = document.getElementsByClassName("closebtn");
+  var i;
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+        }
+      }
 
   return (
     <div className="App">
       <div className="profil-main">
         <h2>Профил</h2>
+
+        <div class="alert" id="myDIVe" style={{display: "none"}}>
+          <span class="closebtn">&times;</span>  
+          <strong>Упс!</strong> {alertText}
+        </div>
+
+        <div class="alert success" id="myDIVs" style={{display: "none"}}>
+          <span class="closebtn">&times;</span>  
+          <strong>Одлично!</strong> {alertText}
+        </div>
+
         <form name="profil" className="profile-edit" id="profil" onSubmit={handleSubmit} >
 
           {preview ? (
@@ -427,7 +459,7 @@ export const ProfileSetUp = () => {
         </button>
 
         <button className="profil-dugme-nazad" onClick={() => navigate(-2)}>
-          Откажи промене
+          Назад
         </button>
       </div>
     </div>

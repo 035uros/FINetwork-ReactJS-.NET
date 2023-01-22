@@ -13,14 +13,45 @@ export const LandingPage = (props) => {
     });
   }
 
+  const translit = require('latin-to-cyrillic');
+
+  const [searchValue, setSearchValue] = useState("");
+  const [listaPredmeta, setlistaPredmeta] =useState([]);
   const [listaOglasa, setListaOglasa] =useState([]);
   const [article, setArticle] =useState([]);
 
- /* let menu = document.querySelector("#menu-btn");
-  let navbar = document.querySelector(".header .navbar");
+  const onChange = (event) => {
+    setSearchValue(event.target.value);
+  };
 
-  let searchBtn = document.querySelector("#search-btn");
-  let searchBar = document.querySelector(".search-bar-container");*/
+  const onSearch = (searchTerm) => {
+    setSearchValue(searchTerm);
+
+    if(searchTerm === ''){
+      getData();
+    }else{
+      const data = {
+        NazivPredmeta: searchTerm
+      };  
+      const url2 = "https://localhost:44357/api/Fin/OglasSearch";
+      axios
+        .post(url2, data)
+        .then((result) => {
+          const oglasi= [];
+          function oglasSet(item){
+            const uniData2 = item.split("_");
+            oglasi.push({
+              label: uniData2[0],
+              value: uniData2[1],
+              oglasid: uniData2[2]
+           })
+          }
+          const uniData = result.data.split(";");
+          uniData.forEach(oglasSet);
+          setListaOglasa(oglasi);
+        });
+    };
+    }
 
   function getData() {
 
@@ -41,6 +72,26 @@ export const LandingPage = (props) => {
         uniData.forEach(oglasSet);
         setListaOglasa(oglasi);
       });
+
+      const data = {
+        IdSmera: parseInt(UserProfile.getUser("smer"), 10)
+      };  
+
+      const url3 = "https://localhost:44357/api/Fin/Predmet";
+        axios
+        .post(url3, data)
+        .then((result) => {
+          const predmeti= [];
+          function predmetSet(item){
+            const uniData2 = item.split("_");
+            predmeti.push({
+              value: uniData2[1]
+           })
+          }
+          const predmetData = result.data.split(";");
+          predmetData.forEach(predmetSet);
+          setlistaPredmeta(predmeti);
+        });
 
     }
 
@@ -180,18 +231,42 @@ export const LandingPage = (props) => {
         </div>
         </section>
         ))}   
-        </div>
+      </div>
 
         <form action="" class="search-bar-container">
-          <input type="search" id="search-bar" placeholder="search here..." />
-          <label for="search-bar" class="fas fa-search"></label>
-        </form>
-        <div className="box-container">
+          <input type="search" id="search-bar" placeholder="Смпремам испит из..." value={searchValue} onChange={onChange}/>
+          <label onClick={() => onSearch(searchValue)} for="search-bar" class="fas fa-search"></label>
+        <div className="dropdown">
+          {listaPredmeta
+            .filter((item) => {
+              const searchTerm = translit(searchValue.toLowerCase());
+              const predmet = item.value.toLowerCase();
 
+              return (
+                searchTerm &&
+                predmet.startsWith(searchTerm) &&
+                predmet !== searchTerm
+              );
+            })
+            .slice(0, 10)
+            .map((item) => (
+              <div
+                onClick={() => onSearch(item.value)}
+                className="dropdown-row"
+                key={item.value}
+              >
+                {item.value}
+              </div>
+            ))}
+        </div>
+        </form>
+        
+        <div className="box-container">
           {listaOglasa.map(({ label, value, oglasid }) => (
             <div className="box"> <h3>{label}</h3> <p> {value} </p> <button value={oglasid} onClick={() => showArticle(oglasid)} className="btn"> Прикажи више </button> </div> 
         ))}        
         </div>
+
       </div>
     </div>
   );

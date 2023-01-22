@@ -20,6 +20,7 @@ export const Post = (props) => {
   const [predmet, setPredmet] = useState("");
   const [date, setDate] = useState(new Date());
   const [info, setInfo] = useState("");
+  const [alertText, setAlert] = useState("");
 
   function getData() {
 
@@ -102,13 +103,27 @@ export const Post = (props) => {
         .post(url, data)
         .then((result) => {
           if (result.data === "Унос успешан") {
-            alert(result.data);
+            setAlert(result.data);
+            var x = document.getElementById("myDIVs");
+            x.style.display = "block";
           }
         })
         .catch((error) => {
-          alert(error);
+          setAlert(error);
+          var x = document.getElementById("myDIVe");
+          x.style.display = "block";
         });
-        
+      }
+
+      var close = document.getElementsByClassName("closebtn");
+      var i;
+
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+        }
       }
 
   return (
@@ -128,6 +143,17 @@ export const Post = (props) => {
       
       <section className="articlePost">
         <h3>Постави оглас</h3>
+
+      <div class="alert" id="myDIVe" style={{display: "none"}}>
+        <span class="closebtn">&times;</span>  
+        <strong>Упс!</strong> {alertText}
+      </div>
+
+      <div class="alert success" id="myDIVs" style={{display: "none"}}>
+        <span class="closebtn">&times;</span>  
+        <strong>Одлично!</strong> {alertText}
+      </div>
+
         <form name="oglas" class="post-name-container" onSubmit={handleSubmit}>
         <select id="post-name" name="name" value={UserProfile.getUser("uni")}>
         {listaUniverziteta.map(({ label, value }) => (
