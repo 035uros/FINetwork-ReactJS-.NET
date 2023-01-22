@@ -10,13 +10,15 @@ export const Register = (props) => {
     const [user, setUser] = useState('');
     const [lastname, setLastname] = useState('');
     const [checkPass, setCheckPass] = useState('');
+
+    const [alertText, setAlert] = useState("");
     let navigate = useNavigate ();
 
     const handleSubmit = (e) => {  
+        e.preventDefault();
         if(pass===checkPass){
-            e.preventDefault();
             const data = {
-                KorisnickoIme:user,
+                KorisnickoIme: user,
                 Ime: name,
                 Prezime: lastname,
                 Email: email,
@@ -30,20 +32,36 @@ export const Register = (props) => {
                     navigate("/login");
                 }
             }).catch((error)=>{
-                alert(error);
+                setAlert(error);
+                var x = document.getElementById("myDIVe");
+                x.style.display = "block";
             })
         }else{
-            alert("Лозинке се не поклапају");
-        }      
-
-            
+            setAlert("Лозинке се не поклапају");
+            var x = document.getElementById("myDIVe");
+            x.style.display = "block";
+        }               
         }
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function(){
+                var div = this.parentElement;
+                div.style.opacity = "0";
+                setTimeout(function(){ div.style.display = "none"; }, 600);
+            }
+      }
 
     return(
         <Fragment>
         <div className="App">
         <div className="auth-form-container"> 
         <h2>Регистрација</h2>
+        <div class="alert" id="myDIVe" style={{display: "none"}}>
+          <span class="closebtn">&times;</span>  
+          <strong>Упс!</strong> {alertText}
+        </div>
         <form className="reg-form" onSubmit={handleSubmit}>
             <label htmlFor="name">Име</label>
             <input value ={name} onChange ={(e) => setName(e.target.value)}placeholder="Унесите Ваше име" id="name" name="name" required/>
