@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import { Navigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserProfile from '../UserProfile';
 import "../Components/Post.css";
@@ -9,6 +7,13 @@ import "../Components/LandingPage.css";
 import "../Components/Article.css";
 
 export const Post = (props) => {
+  let navigate = useNavigate ();
+  if (UserProfile.getUser("authorized") !== "true") {
+    navigate({
+      pathname: "/login",
+    });
+  }
+
   const [listaUniverziteta, setListaUniverziteta] =useState([]);
   const [listaSmerova, setListaSmerova] =useState([]);
   const [listaPredmeta, setlistaPredmeta] =useState([]);
@@ -91,7 +96,6 @@ export const Post = (props) => {
           Rok: date,
           Info: info
         };
-        alert(predmet);
 
         const url = "https://localhost:44357/api/Fin/Oglas";
         axios
@@ -109,20 +113,19 @@ export const Post = (props) => {
 
   return (
     <div className="post">
+
       <nav class="navbar nav-1">
         <section class="flex">
-          <a href="ProfileSetUp" class="logo">
-            <i class="fas fa-house"></i>Профил
-          </a>
-          <ul>
-            <li>
-              <a href="#">
-                Постави оглас<i class="fas fa-paper-plane"></i>
-              </a>
-            </li>
+          <a href="#/"onClick={() => { navigate({ pathname: "/" }); }} class="logo"> <i class="fas fa-house"></i>Почетна </a>
+          
+          <ul> 
+            <li> <a href="#/" onClick={() => { navigate({ pathname: "/post" }); }}> <i class="fas fa-paper-plane"></i> Постави оглас</a> </li>
+            <li><a href="#/"onClick={() => { navigate({ pathname: "/profilesetup" }); }}> Профил </a></li>
+            <li><a href="#/"onClick={() => { UserProfile.unsetAuth(); navigate({ pathname: "/login" }); }}> Одјави се </a></li>
           </ul>
         </section>
       </nav>
+      
       <section className="articlePost">
         <h3>Постави оглас</h3>
         <form name="oglas" class="post-name-container" onSubmit={handleSubmit}>
@@ -162,15 +165,11 @@ export const Post = (props) => {
             value={info}
             onChange={(e) => setInfo(e.target.value)}
           ></textarea>
-          <button type="submit">Пријави се</button>
+          <button type="submit">Унеси</button>
         </form>
       </section>
     </div>
   );
 };
-
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = {};
 
 export default Post;

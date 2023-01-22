@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
 import "../Components/LandingPage.css";
 import "../Components/Article.css";
@@ -15,15 +13,83 @@ export const LandingPage = (props) => {
     });
   }
 
-  let menu = document.querySelector("#menu-btn");
+  const [listaOglasa, setListaOglasa] =useState([]);
+  const [article, setArticle] =useState([]);
+
+ /* let menu = document.querySelector("#menu-btn");
   let navbar = document.querySelector(".header .navbar");
 
   let searchBtn = document.querySelector("#search-btn");
-  let searchBar = document.querySelector(".search-bar-container");
+  let searchBar = document.querySelector(".search-bar-container");*/
 
-  function showArticle() {
+  function getData() {
+
+    const url = "https://localhost:44357/api/Fin/OglasLoad";
+    axios
+      .post(url)
+      .then((result) => {
+        const oglasi= [];
+        function oglasSet(item){
+          const uniData2 = item.split("_");
+          oglasi.push({
+            label: uniData2[0],
+            value: uniData2[1],
+            oglasid: uniData2[2]
+         })
+        }
+        const uniData = result.data.split(";");
+        uniData.forEach(oglasSet);
+        setListaOglasa(oglasi);
+      });
+
+    }
+
+    useEffect(() => {
+      getData();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    function getArticle(idOglasa) {
+      const data = {
+        IdOglasa: idOglasa
+      };
+      const url = "https://localhost:44357/api/Fin/ArticleLoad";
+      axios
+        .post(url, data)
+        .then((result) => {
+          const items= [];
+          function oglasSet(item){
+            const uniData2 = item.split("_");
+            items.push({
+              naslov: uniData2[0],
+              ime: uniData2[1],
+              prezime: uniData2[2],
+              nazivUniverziteta: uniData2[3],
+              nazivSmera: uniData2[4],
+              godina: uniData2[5],
+              pol: uniData2[6],
+              email: uniData2[7],
+              pusac: uniData2[8],
+              muzika: uniData2[9],
+              mesto: uniData2[10],
+              pauze: uniData2[11],
+              grupa: uniData2[12],
+              info: uniData2[13],
+              stepen: uniData2[14],
+              online: uniData2[15]
+           })
+          }
+          const uniData = result.data.split(";");
+          uniData.forEach(oglasSet);
+          setArticle(items);
+        });
+  
+      }
+
+  function showArticle(oglasId) {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {
+      getArticle(oglasId);
       x.style.display = "block";
     } else {
       x.style.display = "none";
@@ -33,19 +99,12 @@ export const LandingPage = (props) => {
     <div>
       <nav class="navbar nav-1">
         <section class="flex">
-          <a onClick={() => {
-            navigate({ pathname: "/profilesetup" });
-            }} class="logo">
-            <i class="fas fa-house"></i>Профил
-          </a>
-          <ul>
-            <li>
-              <a onClick={() => {
-            navigate({ pathname: "/post" });
-            }}>
-                Постави оглас<i class="fas fa-paper-plane"></i>
-              </a>
-            </li>
+          <a href="#/"onClick={() => { navigate({ pathname: "/" }); }} class="logo"> <i class="fas fa-house"></i>Почетна </a>
+          
+          <ul> 
+            <li> <a href="#/" onClick={() => { navigate({ pathname: "/post" }); }}> <i class="fas fa-paper-plane"></i> Постави оглас</a> </li>
+            <li><a href="#/"onClick={() => { navigate({ pathname: "/profilesetup" }); }}> Профил </a></li>
+            <li><a href="#/"onClick={() => { UserProfile.unsetAuth(); navigate({ pathname: "/login" }); }}> Одјави се </a></li>
           </ul>
         </section>
       </nav>
@@ -53,144 +112,90 @@ export const LandingPage = (props) => {
       <div className="container">
 
       <div id="myDIV" style={{display: "none"}}>
+      {article.map(({ naslov,  ime, prezime, nazivUniverziteta, nazivSmera, godina, pol, email, pusac, muzika, mesto, pauze, grupa, info, stepen, online }) => (
         <section class="article">
         <div class="details">
-          <h3 class="name">Математика</h3>
+        <h3 class="name">{naslov}</h3>
           <p class="user">
-            <span>Милан Маринковић</span>
+            <span>{ime} {prezime}</span>
           </p>
           <h3 class="title">Детаљи</h3>
           <div class="flex">
             <div class="box">
-              <p>
-                <i>Универзитет:</i>
-                <span>Крагујевац</span>
-              </p>
-              <p>
-                <i>Степен студија:</i>
-                <span>4</span>
-              </p>
-              <p>
-                <i>Смер:</i>
-                <span>Рачунарска техника и софтверско инжењерство</span>
-              </p>
-              <p>
-                <i>Година</i>
-                <span>4</span>
-              </p>
-              <p>
-                <i>Пол:</i>
-                <span>Мушки</span>
-              </p>
-              <p>
-                <i>Е-маил:</i>
-                <span>mm94261@gmail.com</span>
-              </p>
+            <p>
+              <span>{nazivUniverziteta}</span>
+            </p>
+            <p>
+              <i>Степен студија:</i>
+              <span>{stepen}</span>
+            </p>
+            <p>
+              <i>Смер:</i>
+              <span>{nazivSmera}</span>
+            </p>
+            <p>
+              <i>Година</i>
+              <span>{godina}</span>
+            </p>
+            <p>
+              <i>Пол:</i>
+              <span>{pol}</span>
+            </p>
+            <p>
+              <i>Е-маил:</i>
+              <span>{email}</span>
+            </p>
             </div>
             <div class="box">
-              <p>
-                <i>Дувански дим:</i>
-                <span>Не</span>
-              </p>
-              <p>
-                <i>Музика:</i>
-                <span>Не</span>
-              </p>
-              <p>
-                <i>Место за учење:</i>
-                <span>Не</span>
-              </p>
-              <p>
-                <i>Тип учења:</i>
-                <span>Уживо</span>
-              </p>
-              <p>
-                <i>Паузе:</i>
-                <span>Да</span>
-              </p>
-              <p>
-                <i>Учење у већим групама:</i>
-                <span>Да</span>
-              </p>
+            <p>
+              <i>Дувански дим:</i>
+              <span>{pusac}</span>
+            </p>
+            <p>
+              <i>Музика:</i>
+              <span>{muzika}</span>
+            </p>
+            <p>
+              <i>Место за учење:</i>
+              <span>{mesto}</span>
+            </p>
+            <p>
+              <i>Тип учења:</i>
+              <span>{online}</span>
+            </p>
+            <p>
+              <i>Паузе:</i>
+              <span>{pauze}</span>
+            </p>
+            <p>
+              <i>Учење у већим групама:</i>
+              <span>{grupa}</span>
+            </p>
             </div>
           </div>
           <h3 class="title">Додатне информације:</h3>
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-            cupiditate aliquid ipsum recusandae maxime nisi, velit eaque,
-            libero, exercitationem culpa accusamus. Neque dolor quaerat modi
-            saepe facere dignissimos temporibus molestias.
-          </p>
-          <a href="#" className="btn">
-            Пошаљи поруку
-          </a>
-          <a onClick={showArticle} className="btn">
-            Назад
-          </a>
+          <p class="description"> {info} </p>
+          <a href="#/" className="btn"> Пошаљи поруку </a>
+          <a href="#/" onClick={showArticle} className="btn"> Назад </a>
         </div>
         </section>
+        ))}   
         </div>
 
         <form action="" class="search-bar-container">
           <input type="search" id="search-bar" placeholder="search here..." />
           <label for="search-bar" class="fas fa-search"></label>
         </form>
-
-        
-        
-
         <div className="box-container">
-          <div className="box">
-            <h3>Математика 3</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-              commodi?
-            </p>
-            <a href="#" className="btn">
-              Прикажи више
-            </a>
-          </div>
 
-          <div className="box">
-            <h3>Електроника</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-              commodi?
-            </p>
-            <button onClick={showArticle} className="btn">
-              Прикажи више
-            </button>
-          </div>
-
-          <div className="box">
-            <h3>Е-пословање</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-              commodi?
-            </p>
-            <a href="#" className="btn">
-              Прикажи више
-            </a>
-          </div>
-
-          <div className="box">
-            <h3>Базе података</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-              commodi?
-            </p>
-            <a href="#" className="btn">
-              Прикажи више
-            </a>
-          </div>
+          {listaOglasa.map(({ label, value, oglasid }) => (
+            <div className="box"> <h3>{label}</h3> <p> {value} </p> <button value={oglasid} onClick={() => showArticle(oglasid)} className="btn"> Прикажи више </button> </div> 
+        ))}        
         </div>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = {};
 
 export default LandingPage;

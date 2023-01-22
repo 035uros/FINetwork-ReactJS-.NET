@@ -425,22 +425,11 @@ export const ProfileSetUp = () => {
         <button className="profil-dugme" type="submit" form="profil">
           Потврди
         </button>
+
+        <button className="profil-dugme-nazad" onClick={() => navigate(-2)}>
+          Откажи промене
+        </button>
       </div>
     </div>
   );
 };
-
-
-/*  <label htmlFor="uni">Универзитет</label>
-            <input value ={uni} onChange ={(e) => setUni(e.target.value)} placeholder="Изаберите Ваш универзитет" id="uni" name="uni"/>
-
-            <label htmlFor="smer">Смер</label>
-            <input value ={smer} onChange ={(e) => setSmer(e.target.value)} placeholder="Изаберите Ваш смер" id="smer" name="smer"/>
-
-
-
-
-
-<img src="https://icons.iconarchive.com/icons/bokehlicia/captiva/128/multimedia-photo-manager-icon.png"/>
-            
-             */
