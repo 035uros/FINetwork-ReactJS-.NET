@@ -24,6 +24,10 @@ var UserProfile = (function() {
         document.cookie = "authorized = true"; // Also set this in cookie/localStorage
     };
 
+    var unsetAuth = function() {
+      document.cookie = "authorized = false"; // Also set this in cookie/localStorage
+  };
+
     var setUni = function(uni) {
       document.cookie = "uni = " + uni; // Also set this in cookie/localStorage
   };
@@ -36,6 +40,7 @@ var UserProfile = (function() {
       getUser: getUser,
       setUser: setUser,
       setAuth: setAuth,
+      unsetAuth: unsetAuth,
       setUni: setUni,
       setSmer: setSmer
     }
