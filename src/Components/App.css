@@ -95,6 +95,16 @@ select {
 /*sirina dugmeta FAJL ProfuleSetUp*/
 .profil-dugme {
   width: 30%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.profil-dugme-nazad {
+  width: 30%;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #c51717;
+  color:wheat;
 }
 /*Custom placeholder za upload profilne slike FAJL ProfuleSetUp*/
 .image-upload > input {
