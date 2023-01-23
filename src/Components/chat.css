@@ -1,4 +1,7 @@
-* {box-sizing: border-box;}
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap");
+* {
+  box-sizing: border-box;
+}
 
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
@@ -51,13 +54,13 @@
 
 /* Set a style for the submit/send button */
 .form-container .btn {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
   width: 44%; /*DORADITI*/
-  margin-bottom:10px;
+  margin-bottom: 10px;
   opacity: 0.8;
 }
 
@@ -67,49 +70,144 @@
 }
 
 /* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
+.form-container .btn:hover,
+.open-button:hover {
   opacity: 1;
 }
 
 .containerChat {
-    border: 2px solid #dedede;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-  }
-  
-  .darker {
-    border-color: #ccc;
-    background-color: #ddd;
-  }
-  
-  .containerChat::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  
-  .containerChat img {
-    float: left;
-    max-width: 60px;
-    width: 100%;
-    margin-right: 20px;
-    border-radius: 50%;
-  }
-  
-  .containerChat img.right {
-    float: right;
-    margin-left: 20px;
-    margin-right:0;
-  }
-  
-  .time-right {
-    float: right;
-    color: #aaa;
-  }
-  
-  .time-left {
-    float: left;
-    color: #999;
-  }
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.containerChat::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.containerChat img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.containerChat img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+
+.sidebar {
+  position: fixed;
+  width: 200px;
+  left: 66%;
+  height: 90%;
+  background: #fff;
+  transition: all 0.5s ease;
+  border-radius: 20px;
+}
+.sidebar header {
+  font-size: 25px;
+  font-weight: bolder;
+  color: #333;
+  line-height: 70px;
+  text-align: center;
+  background: #fff;
+  user-select: none;
+  font-family: "Montserrat", sans-serif;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom: 1px solid black;
+}
+.sidebar a {
+  display: block;
+  height: 65px;
+  width: 100%;
+  color: #333;
+  line-height: 65px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 5px solid transparent;
+  font-family: "Open Sans", sans-serif;
+  transition: all 0.5s ease;
+}
+a.active,
+a:hover {
+  border-left: 5px solid #333;
+  color: #333;
+}
+.sidebar a i {
+  font-size: 23px;
+  margin-right: 16px;
+}
+.sidebar a span {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#check {
+  display: none;
+}
+label #btn,
+label #cancel {
+  position: absolute;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #262626;
+  margin: 15px 30px;
+  font-size: 29px;
+  background: #262626;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  line-height: 45px;
+  transition: all 0.5s ease;
+}
+label #cancel {
+  opacity: 0;
+  visibility: hidden;
+}
+#check:checked ~ .sidebar {
+  left: 0;
+}
+#check:checked ~ label #btn {
+  margin-left: 245px;
+  opacity: 0;
+  visibility: hidden;
+}
+#check:checked ~ label #cancel {
+  margin-left: 245px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.person-box img {
+  border-radius: 50%;
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 3px;
+}
