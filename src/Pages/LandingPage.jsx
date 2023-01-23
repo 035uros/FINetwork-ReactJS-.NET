@@ -314,6 +314,37 @@ export const LandingPage = (props) => {
             <button class="open-button" onClick={openForm}>Chat</button>
 
             <div class="chat-popup" id="myForm">
+              <div class="sidebar">
+              <header>Моја ћаскања</header>
+              <a href="#" class="person-box">
+                <img src="#" alt="pic" />
+                <span>Kristina</span>
+              </a>
+              <a href="#" class="person-box">
+                <img src="#" alt="pic" />
+                <span>Uros</span>
+              </a>
+              <a href="#" class="person-box">
+                <img src="#" alt="pic" />
+                <span>Milan</span>
+              </a>
+              <a href="#" class="person-box">
+                <img src="#" alt="pic" />
+                <span>Švaba</span>
+              </a>
+              <a href="#" class="person-box">
+                <img src="#" alt="pic" />
+                <span>Dule</span>
+              </a>
+              <a href="#" class="person-box">
+                <img src="#" alt="pic" />
+                <span>Ekser</span>
+              </a>
+              <a href="#" class="person-box">
+                <img src="#" alt="pic" />
+                <span>Krlja</span>
+              </a>
+            </div>
                <form onSubmit={handleSubmitChat} class="form-container">
                <h1>Ћаскање</h1>
 
