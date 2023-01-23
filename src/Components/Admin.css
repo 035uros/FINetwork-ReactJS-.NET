@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+table {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  box-shadow: 0 2px 15px rgba(64, 64, 64, 0.7);
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+td,
+th {
+  padding: 15px 20px;
+  text-align: center;
+}
+th {
+  background-color: #333;
+  color: #fafafa;
+  font-family: "Open Sans", Sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+tr {
+  width: 100%;
+  background-color: #fafafa;
+  font-family: "Montserrat", sans-serif;
+}
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+tr button {
+  background-color: #fafafa;
+}
+
+tr:nth-child(even) button {
+  background-color: #eeeeee;
+}
+
+.fa-solid {
+  font-size: 1rem;
+}
+
+.fa-check {
+  color: #69db7c;
+}
+
+.fa-x {
+  color: #e03131;
+}
