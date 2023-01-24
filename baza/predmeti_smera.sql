@@ -162,6 +162,15 @@ VALUES (53,1,53);
 
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
 VALUES (54,1,55);
+SELECT TOP (1000) [id]
+      ,[id_smera]
+      ,[id_predmeta]
+  FROM [finetwork].[dbo].[predmeti_smera]
+
+--Automobilsko inzenjerstvo osnovne i master studije
+
+
+
 
 -- Bioinženjering master studije --
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
@@ -352,8 +361,7 @@ INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
 VALUES (120	,	7, 120);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
 VALUES (121	,	7, 121 );
-INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (122	,	7,);
+
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
 VALUES (123	,	7, 122);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
@@ -578,292 +586,292 @@ VALUES (229		, 10, 229	);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
 VALUES (230		, 10, 230);
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (234, , 10, 234);
+VALUES (234,10, 234);
 
 
 --Elektrotehnika i racunarstvo MAS
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (235, , 4, 235);
+VALUES (235,4, 235);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (236, , 4, 236);
+VALUES (236,4, 236);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (237, , 4, 237);
+VALUES (237,4, 237);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (238, , 4, 238);
+VALUES (238,4, 238);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (239, , 4, 239);
+VALUES (239,4, 239);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (240, , 4, 240);
+VALUES (240,4, 240);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (241, , 4, 241);
+VALUES (241,4, 241);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (242, , 4, 242);
+VALUES (242,4, 242);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (243, , 4, 243);
+VALUES (243,4, 243);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (244, , 4, 244);
+VALUES (244,4, 244);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (245, , 4, 245);
+VALUES (245,4, 245);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (246, , 4, 246);
+VALUES (246,4, 246);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (247, , 4, 247);
+VALUES (247,4, 247);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (248, , 4, 248);
+VALUES (248,4, 248);
 
 -- Индустријско инжењерство МАС
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (250, , 5, 250);
+VALUES (250,5, 250);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (251, , 5, 251);
+VALUES (251,5, 251);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (252, , 5, 252);
+VALUES (252,5, 252);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (253, , 5, 253);
+VALUES (253,5, 253);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (254, , 5, 254);
+VALUES (254,5, 254);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (255, , 5, 255);
+VALUES (255,5, 255);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (256, , 5, 256);
+VALUES (256,5, 256);
 
 --Инжењерски менаџмент МАС
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (257, , 11, 257);
+VALUES (257,11, 257);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (258, , 11, 258);
+VALUES (258,11, 258);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (259, , 11, 259);
+VALUES (259,11, 259);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (260, , 11, 260);
+VALUES (260,11, 260);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (261, , 11, 261);
+VALUES (261,11, 261);
 
 --Инжењерство заштите животне средине МАС
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (262, , 6, 262);
+VALUES (262,6, 262);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (263, , 6, 263);
+VALUES (263,6, 263);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (264, , 6, 264);
+VALUES (264,6, 264);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (265, , 6, 265);
+VALUES (265,6, 265);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (266, , 6, 266);
+VALUES (266,6, 266);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (267, , 6, 267);
+VALUES (267,6, 267);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (268, , 6, 268);
+VALUES (268,6, 268);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (269, , 6, 269);
+VALUES (269,6, 269);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (270, , 6, 270);
+VALUES (270,6, 270);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (271, , 6, 271);
+VALUES (271,6, 271);
 
 
 --Машинско инжењерство МАС
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (272, , 7, 272);
+VALUES (272,7, 272);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (273, , 7, 273);
+VALUES (273,7, 273);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (274, , 7, 274);
+VALUES (274,7, 274);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (275, , 7, 275);
+VALUES (275,7, 275);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (276, , 7, 276);
+VALUES (276,7, 276);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (277, , 7, 277);
+VALUES (277,7, 277);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (278, , 7, 278);
+VALUES (278,7, 278);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (279, , 7, 279);
+VALUES (279,7, 279);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (280, , 7, 280);
+VALUES (280,7, 280);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (281, , 7, 281);
+VALUES (281,7, 281);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (282, , 7, 282);
+VALUES (282,7, 282);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (283, , 7, 283);
+VALUES (283,7, 283);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (284, , 7, 284);
+VALUES (284,7, 284);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (285, , 7, 285);
+VALUES (285,7, 285);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (286, , 7, 286);
+VALUES (286,7, 286);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (287, , 7, 287);
+VALUES (287,7, 287);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (288, , 7, 288);
+VALUES (288,7, 288);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (289, , 7, 289);
+VALUES (289,7, 289);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (290, , 7, 290);
+VALUES (290,7, 290);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (291, , 7, 291);
+VALUES (291,7, 291);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (292, , 7, 292);
+VALUES (292,7, 292);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (293, , 7, 293);
+VALUES (293,7, 293);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (294, , 7, 294);
+VALUES (294,7, 294);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (295, , 7, 295);
+VALUES (295,7, 295);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (296, , 7, 296);
+VALUES (296,7, 296);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (297, , 7, 297);
+VALUES (297,7, 297);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (298, , 7, 298);
+VALUES (298,7, 298);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (299, , 7, 299);
+VALUES (299,7, 299);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (300, , 7, 300);
+VALUES (300,7, 300);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (301, , 7, 301);
+VALUES (301,7, 301);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (302, , 7, 302);
+VALUES (302,7, 302);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (303, , 7, 303);
+VALUES (303,7, 303);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (304, , 7, 304);
+VALUES (304,7, 304);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (305, , 7, 305);
+VALUES (305,7, 305);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (306, , 7, 306);
+VALUES (306,7, 306);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (307, , 7, 307);
+VALUES (307,7, 307);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (308, , 7, 308);
+VALUES (308,7, 308);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (309, , 7, 309);
+VALUES (309,7, 309);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (310, , 7, 310);
+VALUES (310,7, 310);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (311, , 7, 311);
+VALUES (311,7, 311);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (312, , 7, 312);
+VALUES (312,7, 312);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (313, , 7, 313);
+VALUES (313,7, 313);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (314, , 7, 314);
+VALUES (314,7, 314);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (315, , 7, 315);
+VALUES (315,7, 315);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (316, , 7, 316);
+VALUES (316,7, 316);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (317, , 7, 317);
+VALUES (317,7, 317);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (318, , 7, 318);
+VALUES (318,7, 318);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (319, , 7, 319);
+VALUES (319,7, 319);
 
 --Урбано инжењерство МАС
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (320, , 10, 320);
+VALUES (320,10, 320);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (321, , 10, 321);
+VALUES (321,10, 321);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (322, , 10, 322);
+VALUES (322,10, 322);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (323, , 10, 323);
+VALUES (323,10, 323);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (324, , 10, 324);
+VALUES (324,10, 324);
 
  INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (325, , 10, 325);
+VALUES (325,10, 325);
 
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (326, , 10, 326);
+VALUES (326,10, 326);
 
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
 VALUES (327, 1, 5);
@@ -877,48 +885,48 @@ INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
 VALUES (331, 10,5);
 
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (332, , 3, 1);
+VALUES (332,3, 1);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (333, , 7, 1);
+VALUES (333,7, 1);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (334, , 9, 1);
+VALUES (334,9, 1);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (335, , 10, 1);
+VALUES (335,10, 1);
 
 
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (336, , 1, 34);
+VALUES (336,1, 34);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (337, , 7, 34);
+VALUES (337,7, 34);
 
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (338, , 3, 3);
+VALUES (338,3, 3);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (339, , 7, 3);
+VALUES (339,7, 3);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (340, , 9, 3);
+VALUES (340,9, 3);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (341, , 10, 3);
+VALUES (341,10, 3);
 
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (342, , 3, 4);
+VALUES (342,3, 4);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
 VALUES (343,7, 4);
 
 
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (344, , 3, 2);
+VALUES (344,3, 2);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (345, , 7, 2);
+VALUES (345,7, 2);
 
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (346 , 3, 7);
+VALUES (346, 3, 7);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (347 , 7, 7);
+VALUES (347, 7, 7);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (348 , 9, 7);
+VALUES (348, 9, 7);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
-VALUES (349 , 10, 7);
+VALUES (349, 10, 7);
 
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
 VALUES (350,  3, 8);
@@ -1063,8 +1071,10 @@ VALUES (397,  3, 25);
 INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
 VALUES (398, 7, 25);
 
-INSERT INTO predmeti_smerai_smera(id, id_smera, id_predmeta)
+INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
 VALUES (399, 3, 12);
-INSERT INTO predmeti_smerai_smera(id, id_smera, id_predmeta)
+INSERT INTO predmeti_smera(id, id_smera, id_predmeta)
 VALUES (400, 7, 12);
+
+
 
