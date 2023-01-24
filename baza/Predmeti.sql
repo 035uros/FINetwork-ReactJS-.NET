@@ -2,14 +2,16 @@
 
 --Automobilsko inzenjerstvo osnovne i master studije
 
-SET IDENTITY_INSERT [dbo].[predmet] ON
-GO
 INSERT INTO [dbo].[predmet] ( [id_predmeta],[naziv] )
 VALUES ( 1, N'Математика 1')
-GO
 
 INSERT INTO predmet(id_predmeta, naziv)
 VALUES (2, N'Механика 1');
+
+SELECT * FROM predmet;
+
+--Automobilsko inzenjerstvo osnovne i master studije
+
 
 INSERT INTO predmet(id_predmeta, naziv)
 VALUES (3, N'Рачунарски алати');
@@ -214,28 +216,28 @@ VALUES (69, N'Биоинжењеринг и биоинформатика');
 
 -- Vojnoindustrijsko inženjerstvo osnovne i master studije
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (71	,	N'	Механика 1');
+VALUES (71,N'Механика 1');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (72	,	N'	Техничко цртање са компјутерском графиком	');
+VALUES (72,N'Техничко цртање са компјутерском графиком');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (73	,	N'	Борбена употреба наоружања');
+VALUES (73,N'Борбена употреба наоружања');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (75	,	N'	Погонски мобилни системи');
+VALUES (75,N'Погонски мобилни системи');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (76	,	N'	Механика 3	');
+VALUES (76,N'Механика 3');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (77	,	N'	Унутрашња балистика	');
+VALUES (77,N'Унутрашња балистика');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (78	,	N'	Основи логистике	');
+VALUES (78,N'Основи логистике');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (79	,	N'	Електроника	');
+VALUES (79,N'Електроника');
 
 INSERT INTO predmet(id_predmeta, naziv)
 VALUES (80, N'Електрични и серво уређаји');
@@ -297,286 +299,286 @@ INSERT INTO predmet(id_predmeta, naziv)
 VALUES (99, N'Пројектовање информационих система и база података');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (100	,	N'	Технологија прераде пластичних маса	');
+VALUES (100,N'Технологија прераде пластичних маса');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (101	,	N'	Аутоматска оружја	');
+VALUES (101,N'Аутоматска оружја');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (102	,	N'	Конструкција артиљеријских оруђа	');
+VALUES (102,N'Конструкција артиљеријских оруђа');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (103	,	N'	Конструкција пројектила и упаљача	');
+VALUES (103,N'Конструкција пројектила и упаљача');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (104	,	N'	Експлозивне материје		');
+VALUES (104,N'Експлозивне материје');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (105	,	N'	Технологија производње наоружања	');
+VALUES (105,N'Технологија производње наоружања');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (106	,	N'	Технологија одржавања убојних средстава		');
+VALUES (106,N'Технологија одржавања убојних средстава');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (107	,	N'	Технологија одржавања наоружања		');
+VALUES (107,N'Технологија одржавања наоружања');
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (108	,	N'	Технологија производње убојних средстава		');
+VALUES (108,N'Технологија производње убојних средстава');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (109	,	N'	Оптички уређаји и оптоелектроника		');
+VALUES (109,N'Оптички уређаји и оптоелектроника');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (110	,	N'	Управљање ризицима у располагању УбС	');
+VALUES (110,N'Управљање ризицима у располагању УбС');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (111	,	N'	Корозија и заштита материјала		');
+VALUES (111,N'Корозија и заштита материјала');
 
 
 -- Masinsko inzenjerstvo OAS
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (70, 	N'	Производне технологије 2		');
+VALUES (70, N'Производне технологије 2');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (112	,	N'	Oтпорност материјала	');
+VALUES (112,N'Oтпорност материјала');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (113	,	N'	Eлектротехника са електроником		');
+VALUES (113,N'Eлектротехника са електроником');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (114	,	N'	Механика 3			');
+VALUES (114,N'Механика 3');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (115	,	N'	Погонски и мобилни системи	');
+VALUES (115,N'Погонски и мобилни системи');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (116	,	N'	Безбедност саобраћаја	');
+VALUES (116,N'Безбедност саобраћаја');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (117	,	N'	Хидрауличне и пнеуматске машине	');
+VALUES (117,N'Хидрауличне и пнеуматске машине');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (118	,	N'	Пренос топлоте и масе		');
+VALUES (118,N'Пренос топлоте и масе');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (119	,	N'	Предузетништво		');
+VALUES (119,N'Предузетништво');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (120	,	N'	Организација рада		');
+VALUES (120,N'Организација рада');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (121	,	N'	Програмски језици		');
+VALUES (121,N'Програмски језици');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (122	,	N'	Архитектура рачунарских система		');
+VALUES (122,N'Архитектура рачунарских система');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (123	,	N'	Основи транспортних машина		');
+VALUES (123,N'Основи транспортних машина');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (124	,	N'	Металне конструкције	');
+VALUES (124,N'Металне конструкције');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (125	,	N'	Основи биоинжењеринга	');
+VALUES (125,N'Основи биоинжењеринга');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (126	,	N'	Основи аутоматског управљања	');
+VALUES (126,N'Основи аутоматског управљања');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (127	,	N'	Основи трибологије		');
+VALUES (127,N'Основи трибологије');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (128	,	N'	Машине алатке		');
+VALUES (128,N'Машине алатке');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (129		N'	Урбани транспорт		');
+VALUES (129,N'Урбани транспорт');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (130		N'	Информатика у саобраћају		');
+VALUES (130,N'Информатика у саобраћај');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (131		N'	Саобраћај и окружење		');
+VALUES (131,N'Саобраћај и окружење');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (132		N'	Испитивање моторних возила и мотора		');
+VALUES (132,N'Испитивање моторних возила и мотора');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (133		N'	Погонски материјали транспортних средстава	');
+VALUES (133,N'Погонски материјали транспортних средстава');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (134		N'	Одржавање моторних возила и мотора 1		');
+VALUES (134,N'Одржавање моторних возила и мотора 1');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (135		N'	Механика саобраћајне незгоде		');
+VALUES (135,N'Механика саобраћајне незгоде');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (136		N'	Грејање, климатизација и соларна енергија		');
+VALUES (136,N'Грејање, климатизација и соларна енергија');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (137		N'	Основи транспорта цевима		');
+VALUES (137,N'Основи транспорта цевима');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (138		N'	Инжењеринг одржавања		');
+VALUES (138,N'Инжењеринг одржавања');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (139		N'	TQM	');
+VALUES (139,N'TQM');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (140		N'	Управљање развојем		');
+VALUES (140,N'Управљање развојем');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (141		N'	CAD/CAM/CAE I	');
+VALUES (141,N'CAD/CAM/CAE I');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (142		N'	Базе података		');
+VALUES (142,N'Базе података');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (143		N'	Коначни елементи 1		');
+VALUES (143,N'Коначни елементи 1');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (144		N'	Софтверски инжењеринг		');
+VALUES (144,N'Софтверски инжењеринг');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (145		N'	Моделирање и симулације		');
+VALUES (145,N'Моделирање и симулације');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (146		N'	Алгоритми и структуре података		');
+VALUES (146,N'Алгоритми и структуре података');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (147		N'	Дизалице		');
+VALUES (147,N'Дизалице');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (148		N'	Машински елементи 2		');
+VALUES (148,N'Машински елементи 2');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (149		N'	Механизми машина		');
+VALUES (149,N'Механизми машина');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (150		N'	Механички преносници	');
+VALUES (150,N'Механички преносници');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (151		N'	Поузданост машинских система		');
+VALUES (151,N'Поузданост машинских система');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (152		N'	Компјутерско моделирање и симулације машинских елемената и конструкција		');
+VALUES (152,N'Компјутерско моделирање и симулације машинских елемената и конструкција');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (153		N'	Конструкција и прорачун моторних возила	');
+VALUES (153,N'Конструкција и прорачун моторних возила');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (154		N'	Експлоатација моторних возила и мотора 1	');
+VALUES (154,N'Експлоатација моторних возила и мотора 1');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (155		N'	Моторна возила 2		');
+VALUES (155,N'Моторна возила 2');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (156		N'	Динамика машина		');
+VALUES (156,N'Динамика машина');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (157		N'	Влакнима ојачани материјали	');
+VALUES (157,N'Влакнима ојачани материјали');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (158		N'	Сензори и актуатори		');
+VALUES (158,N'Сензори и актуатори');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (159		N'	Основи индустријске производње		');
+VALUES (159,N'Основи индустријске производње');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (160		N'	Основи одржавања		');
+VALUES (160,N'Основи одржавања');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (161		N'	Машине и алати у обради деформисањем		');
+VALUES (161,N'Машине и алати у обради деформисањем');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (162		N'	Алати и прибори		');
+VALUES (162,N'Алати и прибори');
 
 
 -- Racunarska Tehnika i Softversko Inzenjerstvo OAS
 
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (163		N'	Основи програмирања		');
+VALUES (163,N'Основи програмирања');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (164		N'	Основи електротехнике	');
+VALUES (164,N'Основи електротехнике');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (165		N'	Практикум из основа електротехнике		');
+VALUES (165,N'Практикум из основа електротехнике');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (166		N'	Практикум из основа рачунарске технике		');
+VALUES (166,N'Практикум из основа рачунарске технике');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (167		N'	Основи рачунарске технике 1		');
+VALUES (167,N'Основи рачунарске технике 1');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (168		N'	Статистика у инжењерству		');
+VALUES (168,N'Статистика у инжењерству');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (169		N'	Основи рачунарске технике 2		');
+VALUES (169,N'Основи рачунарске технике 2');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (170		N'	Оперативни системи	');
+VALUES (170,N'Оперативни системи');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (171		N'	Нумеричка анализа и дискретна математика		');
+VALUES (171,N'Нумеричка анализа и дискретна математика');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (172		N'	Основи електронике		');
+VALUES (172,N'Основи електронике');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (173		N'	Објектно оријентисано програмирање		');
+VALUES (173,N'Објектно оријентисано програмирање');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (174		N'	Сигнали и системи		');
+VALUES (174,N'Сигнали и системи');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (175		N'	Рачунарске основе Интернета		');
+VALUES (175,N'Рачунарске основе Интернета');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (176		N'	Програмирање интернет апликација	');
+VALUES (176,N'Програмирање интернет апликација');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (177		N'	Дигитална електроника		');
+VALUES (177,N'Дигитална електроника');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (178		N'	Дигитална обрада сигнала	');
+VALUES (178,N'Дигитална обрада сигнала');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (179		N'	Микропроцесорски системи		');
+VALUES (179,N'Микропроцесорски системи');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (180		N'	Основи телекомуникација		');
+VALUES (180,N'Основи телекомуникација');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (181		N'	Дигитални процесори сигнала	');
+VALUES (181,N'Дигитални процесори сигнала');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (182		N'	Програмирање система који раде у реалном времену		');
+VALUES (182,N'Програмирање система који раде у реалном времену');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (183		N'	Паралелни рачунарски системи		');
+VALUES (183,N'Паралелни рачунарски системи');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (184		N'	Обрада аудио сигнала	');
+VALUES (184,N'Обрада аудио сигнала');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (185		N'	Програмирање мобилних апликација		');
+VALUES (185,N'Програмирање мобилних апликација');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (186		N'	Експертски системи		');
+VALUES (186,N'Експертски системи');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (187		N'	Основи машинског и дубоког учења		');
+VALUES (187,N'Основи машинског и дубоког учења');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (188		N'	Пројектовање VLSI система	');
+VALUES (188,N'Пројектовање VLSI система');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (189		N'	Софтверски инжењеринг 2	');
+VALUES (189,N'Софтверски инжењеринг 2');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (190		N'	Дигитална обрада слике		');
+VALUES (190,N'Дигитална обрада слике');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (191		N'	Управљање софтверским пројектима	');
+VALUES (191,N'Управљање софтверским пројектима');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (192		N'	Вештачка интелигенција		');
+VALUES (192,N'Вештачка интелигенција');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (193		N'	Рачунарска графика		');
+VALUES (193,N'Рачунарска графика');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (194		N'	Програмски преводиоци	');
+VALUES (194,N'Програмски преводиоци');
 
 -- Urbano inzenjerstvo OAS
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (195		N'	Инжењерска механика	');
+VALUES (195,N'Инжењерска механика');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (196		N'	Нацртна геометрија и техничко цртање		');
+VALUES (196,N'Нацртна геометрија и техничко цртање');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (197		N'	Основи урбанистичког пројектовања и планирања		');
+VALUES (197,N'Основи урбанистичког пројектовања и планирања');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (198		N'	Материјали (у урбаном инжењерству)		');
+VALUES (198,N'Материјали (у урбаном инжењерству)');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (199		N'	Статистика у инжењерству		');
+VALUES (199,N'Статистика у инжењерству');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (200		N'	Принципи одрживог развоја урбаних и руралних подручја		');
+VALUES (200,N'Принципи одрживог развоја урбаних и руралних подручја');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (201		N'	Пројектовање рачунаром		');
+VALUES (201,N'Пројектовање рачунаром');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (202		N'	Регионално планирање и развој		');
+VALUES (202,N'Регионално планирање и развој');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (203		N'	Основе архитектонског пројектовања 1		');
+VALUES (203,N'Основе архитектонског пројектовања 1');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (204		N'	Термотехника		');
+VALUES (204,N'Термотехника');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (205		N'	Отпорност конструкција		');
+VALUES (205,N'Отпорност конструкција');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (206		N'	Механика тла		');
+VALUES (206,N'Механика тла');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (207		N'	Географски информациони системи		');
+VALUES (207,N'Географски информациони системи');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (208		N'	Водоснабдевање и канализација		');
+VALUES (208,N'Водоснабдевање и канализација');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (209		N'	Електроенергетски и електродистрибутивни системи		');
+VALUES (209,N'Електроенергетски и електродистрибутивни системи');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (210		N'	Е - управа		');
+VALUES (210,N'Е - управа');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (211		N'	Саобраћај и саобраћајнице	');
+VALUES (211,N'Саобраћај и саобраћајнице');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (212		N'	Управљање отпадом		');
+VALUES (212,N'Управљање отпадом');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (213		N'	Технологије и постројења за пречишћавање воде и ваздуха	');
+VALUES (213,N'Технологије и постројења за пречишћавање воде и ваздуха');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (214		N'	Даљинско грејање и снабдевање гасом		');
+VALUES (214,N'Даљинско грејање и снабдевање гасом');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (215		N'	Структурна анализа бетонских конструкција		');
+VALUES (215,N'Структурна анализа бетонских конструкција');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (216		N'	Структурна механика		');
+VALUES (216,N'Структурна механика');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (217		N'	Енерго-еколошки менаџмент		');
+VALUES (217,N'Енерго-еколошки менаџмент');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (218		N'	Одржавање и поузданост техничких система		');
+VALUES (218,N'Одржавање и поузданост техничких система');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (219		N'	Обновљиви извори енергије	');
+VALUES (219,N'Обновљиви извори енергије');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (220		N'	Комплексни програми у урбанизму	');
+VALUES (220,N'Комплексни програми у урбанизму');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (221		N'	Грејање и климатизација		');
+VALUES (221,N'Грејање и климатизација');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (222		N'	Основе архитектонског пројектовања 2		');
+VALUES (222,N'Основе архитектонског пројектовања 2');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (223		N'	Мониторинг параметара животне средине		');
+VALUES (223,N'Мониторинг параметара животне средине');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (224		N'	Металне и дрвене конструкције	');
+VALUES (224,N'Металне и дрвене конструкције');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (225		N'	Управљање енерго - еколошким пројектима	');
+VALUES (225,N'Управљање енерго - еколошким пројектима');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (226		N'	Бетон и бетонске конструкције		');
+VALUES (226,N'Бетон и бетонске конструкције');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (227		N'	Енергетска ефикасност објеката		');
+VALUES (227,N'Енергетска ефикасност објеката');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (228		N'	Структурна механика 2	');
+VALUES (228,N'Структурна механика 2');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (229		N'	Безбедност и здравље на раду		');
+VALUES (229,N'Безбедност и здравље на раду');
 INSERT INTO predmet(id_predmeta, naziv)
-VALUES (230		N'	Технологија рециклаже		');
+VALUES (230,N'Технологија рециклаже');
  INSERT INTO predmet(id_predmeta, naziv)
 VALUES (234, N'Прорачунска механика лома и оштећења');
 
