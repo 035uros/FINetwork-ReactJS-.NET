@@ -5,7 +5,7 @@ App starts with Register and Login pages, here we have all common features regar
 ![login](https://github.com/035uros/FINetwork/blob/54b3b36350574966b4bc41e41d4ea715d8381b6b/presentationImgs/1.png)
 ![register](https://github.com/035uros/FINetwork/blob/54b3b36350574966b4bc41e41d4ea715d8381b6b/presentationImgs/2.png)
 
-After succsesuful login we are redirected to Landing page.
+After successful login we are redirected to Landing page.
 ![landing](https://github.com/035uros/FINetwork/blob/54b3b36350574966b4bc41e41d4ea715d8381b6b/presentationImgs/3.png)
 
 We have in-page view for each individual listing from database ans chat feature.
@@ -18,7 +18,7 @@ App have Profile page where you can add details regarding your collage, lifestyl
 New listing can be added with help of Post page where user can list subject he needs help with regarding his class. All listings will be avalable when searched for in Landing page.
 ![landing](https://github.com/035uros/FINetwork/blob/54b3b36350574966b4bc41e41d4ea715d8381b6b/presentationImgs/6.png)
 
-Search bar converts both latin and ciriyic alphabets and autocompletes your search.
+Search bar converts both latin and cyrillic alphabets and autocompletes your search.
 ![landing](https://github.com/035uros/FINetwork/blob/54b3b36350574966b4bc41e41d4ea715d8381b6b/presentationImgs/9.png)
 
 When user have admin privilages he gets additional features such as approving new members. All members after registering go for approving in Control panel.
