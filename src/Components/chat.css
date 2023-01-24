@@ -74,6 +74,11 @@
 .open-button:hover {
   opacity: 1;
 }
+.chats {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 340px;
+}
 
 .containerChat {
   border: 2px solid #dedede;
@@ -211,3 +216,4 @@ label #cancel {
   width: 100%;
   margin-right: 3px;
 }
+
