@@ -13,6 +13,9 @@ export const ProfileSetUp = () => {
 
   const [alertText, setAlert] = useState("");
 
+  const [listaUniverziteta, setListaUniverziteta] =useState([]);
+  const [listaSmerova, setListaSmerova] =useState([]);
+
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [name, setName] = useState("");
@@ -31,6 +34,57 @@ export const ProfileSetUp = () => {
   const [pol, setPol] = useState("");
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
+
+  function getData2() {
+
+    const data = {
+      IdUniverziteta: parseInt(UserProfile.getUser("uni"), 10),
+      IdSmera: parseInt(UserProfile.getUser("smer"), 10)
+    };
+    console.log(data.IdSmera);
+    
+
+    const url = "https://localhost:44357/api/Fin/Univerzitet";
+    axios
+      .post(url)
+      .then((result) => {
+        const univerziteti= [];
+        function uniSet(item){
+          const uniData2 = item.split("-");
+          univerziteti.push({
+            label: uniData2[0],
+            value: uniData2[1]
+         })
+        }
+        const uniData = result.data.split(";");
+        uniData.forEach(uniSet);
+        setListaUniverziteta(univerziteti);
+      });
+
+      const url2 = "https://localhost:44357/api/Fin/Smer";
+      axios
+        .post(url2, data)
+        .then((result) => {
+          const smerovi= [];
+          function smerSet(item){
+            const uniData2 = item.split("-");
+            smerovi.push({
+              label: uniData2[1],
+              value: uniData2[0]
+           })
+          }
+          const smerData = result.data.split(";");
+          smerData.forEach(smerSet);
+          setListaSmerova(smerovi);
+          console.log(smerovi);
+        });
+
+    }
+
+    useEffect(() => {
+      getData2();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
   useEffect(() => {
     if (image) {
@@ -266,21 +320,16 @@ export const ProfileSetUp = () => {
             <label htmlFor="uni" className="labele">
               Универзитет
             </label>
-            <select
-              value={uni}
-              onChange={(e) => setUni(e.target.value)}
-              placeholder="Изаберите Ваш универзитет"
-              id="uni"
-              name="uni"
-            >
-              <option value="" disabled selected hidden>
+            <select id="uni" name="uni" placeholder="Изаберите Ваш универзитет" value={uni} onChange={(e) => setUni(e.target.value)}>
+            <option value="" disabled selected hidden>
                 Изаберите Ваш универзитет
               </option>
-              <option value="1">Универзитет у Крагујевцу</option>
-              <option value="nes">Нешто друго из базе...</option>
-              <option value="nes">Нешто друго из базе...</option>
-              <option value="nes">Нешто друго из базе...</option>
-            </select>
+              {listaUniverziteta.map(({ label, value }) => (
+              <option  id={value} value={value}>
+              {label}
+              </option >
+              ))}
+          </select>
           </div>
 
           <div className="inputBox">
@@ -294,33 +343,25 @@ export const ProfileSetUp = () => {
               <option value="" disabled selected hidden>
                 Степен студија
               </option>
-              <option value="vis">Високе струковне студије</option>
-              <option value="oas">Основне академске студије</option>
-              <option value="mas">Мастер студије</option>
-              <option value="dok">Докторске студије</option>
+              <option value="VIS">Високе струковне студије</option>
+              <option value="OAS">Основне академске студије</option>
+              <option value="MAS">Мастер студије</option>
+              <option value="DOK">Докторске студије</option>
             </select>
           </div>
 
           <div className="inputBox">
             <label htmlFor="smer">Смер</label>
-            <select
-              input
-              value={smer}
-              onChange={(e) => setSmer(e.target.value)}
-              placeholder="Изаберите Ваш смер"
-              id="smer"
-              name="smer"
-            >
-              <option value="" disabled selected hidden>
-                Изаберите Ваш смер
+            <select id="smer" name="smer" value={smer} onChange={(e) => setSmer(e.target.value)} placeholder="Изаберите Ваш смер">
+            <option value="" disabled selected hidden>
+              Изаберите Ваш смер
               </option>
-              <option value="1">
-                Рачунарска техника и софтверско инжењерство
-              </option>
-              <option value="nes">Нешто друго из базе...</option>
-              <option value="nes">Нешто друго из базе...</option>
-              <option value="nes">Нешто друго из базе...</option>
-            </select>
+              {listaSmerova.map(({ label, value }) => (
+              <option  id={value} value={value}>
+              {label}
+              </option >
+            ))}
+          </select>
           </div>
 
           <div className="inputBox">
@@ -343,7 +384,7 @@ export const ProfileSetUp = () => {
               name="pusac"
             >
               <option value="" disabled selected hidden>
-                Да ли вам смета дувански дим?
+                Да ли сте пушач?
               </option>
               <option value="Ne">Не</option>
               <option value="Da">Да</option>
@@ -357,7 +398,7 @@ export const ProfileSetUp = () => {
               name="muzika"
             >
               <option value="" disabled selected hidden>
-                Да ли вам смета музика док учите?
+                Да ли волите музику док учите?
               </option>
               <option value="Ne">Не</option>
               <option value="Da">Да</option>

@@ -26,6 +26,7 @@ export const Login = (props) => {
           const userData = result.data.split("-");
           UserProfile.setSmer(userData[0]);
           UserProfile.setUni(userData[1]);
+          UserProfile.setRola(userData[2]);
         })
     }
     

@@ -129,13 +129,14 @@ export const Post = (props) => {
   return (
     <div className="post">
 
-      <nav class="navbar nav-1">
+<nav class="navbar nav-1">
         <section class="flex">
           <a href="#/"onClick={() => { navigate({ pathname: "/" }); }} class="logo"> <i class="fas fa-house"></i>Почетна </a>
           
           <ul> 
             <li> <a href="#/" onClick={() => { navigate({ pathname: "/post" }); }}> <i class="fas fa-paper-plane"></i> Постави оглас</a> </li>
             <li><a href="#/"onClick={() => { navigate({ pathname: "/profilesetup" }); }}> Профил </a></li>
+            {UserProfile.getUser("rola") === "1" ? (<li> <a href="#/" onClick={() => { navigate({ pathname: "/admin" }); }}>Контролна табла</a> </li>) : (<li></li>)}
             <li><a href="#/"onClick={() => { UserProfile.unsetAuth(); navigate({ pathname: "/login" }); }}> Одјави се </a></li>
           </ul>
         </section>

@@ -1,59 +1,98 @@
 * {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-}
+    margin: 0;
+    padding: 0;
+    outline: 0;
+  }
+  
+  table {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-shadow: 0 2px 15px rgba(64, 64, 64, 0.7);
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+  }
+  td,
+  th {
+    padding: 15px 20px;
+    text-align: center;
+  }
+  th {
+    background-color: #333;
+    color: #fafafa;
+    font-family: "Open Sans", Sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+  }
+  tr {
+    width: 100%;
+    background-color: #fafafa;
+    font-family: "Montserrat", sans-serif;
+  }
+  tr:nth-child(even) {
+    background-color: #eeeeee;
+  }
+  
+  tr button {
+    background-color: #fafafa;
+  }
+  
+  tr:nth-child(even) button {
+    background-color: #eeeeee;
+  }
+  
+  .fa-solid {
+    font-size: 1rem;
+  }
+  
+  .fa-check {
+    color: #69db7c;
+  }
+  
+  .fa-x {
+    color: #e03131;
+  }
 
-table {
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  box-shadow: 0 2px 15px rgba(64, 64, 64, 0.7);
-  border-radius: 12px 12px 0 0;
-  overflow: hidden;
-}
-td,
-th {
-  padding: 15px 20px;
-  text-align: center;
-}
-th {
-  background-color: #333;
-  color: #fafafa;
-  font-family: "Open Sans", Sans-serif;
-  font-weight: 200;
-  text-transform: uppercase;
-}
-tr {
-  width: 100%;
-  background-color: #fafafa;
-  font-family: "Montserrat", sans-serif;
-}
-tr:nth-child(even) {
-  background-color: #eeeeee;
-}
-
-tr button {
-  background-color: #fafafa;
-}
-
-tr:nth-child(even) button {
-  background-color: #eeeeee;
-}
-
-.fa-solid {
-  font-size: 1rem;
-}
-
-.fa-check {
-  color: #69db7c;
-}
-
-.fa-x {
-  color: #e03131;
-}
+  
+.alert {
+    z-index: 50;
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 300px;
+    height: 60px;
+  }
+  
+  .alert.success {background-color: #04AA6D;}
+  .alert.info {background-color: #2196F3;}
+  .alert.warning {background-color: #ff9800;}
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: grey;
+  }
+  

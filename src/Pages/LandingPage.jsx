@@ -14,6 +14,7 @@ export const LandingPage = (props) => {
     });
   }
 
+
   const translit = require('latin-to-cyrillic');
 
   const [searchValue, setSearchValue] = useState("");
@@ -21,9 +22,41 @@ export const LandingPage = (props) => {
   const [listaOglasa, setListaOglasa] =useState([]);
   const [article, setArticle] =useState([]);
   const [idOglasa, setIdOglasa] = useState("");
-  const [idPrimaoca, setIdPrimaoca] = useState("");
+  const [userPrimaoca, setUserPrimaoca] = useState("");
   const [msgText, setMsgText] = useState("");
+  const [listaDrugara, setListaDrugara] =useState([]);
+  const [listaPoruka, setListaPoruka] =useState([]);
 
+  function getPredmeti(){
+    var x;
+    if(parseInt(UserProfile.getUser("smer"), 10) === 0){
+     x = 1;
+    }
+    else{
+      x = parseInt(UserProfile.getUser("smer"), 10);
+    }
+    const data = {
+        IdSmera: x
+      };  
+
+      const url3 = "https://localhost:44357/api/Fin/Predmet";
+        axios
+        .post(url3, data)
+        .then((result) => {
+          const predmeti= [];
+          function predmetSet(item){
+            const uniData2 = item.split("_");
+            predmeti.push({
+              value: uniData2[1]
+           })
+          }
+          const predmetData = result.data.split(";");
+          predmetData.forEach(predmetSet);
+          setlistaPredmeta(predmeti);
+        });
+    }
+
+ 
   const onChange = (event) => {
     setSearchValue(event.target.value);
   };
@@ -77,25 +110,7 @@ export const LandingPage = (props) => {
         setListaOglasa(oglasi);
       });
 
-      const data = {
-        IdSmera: parseInt(UserProfile.getUser("smer"), 10)
-      };  
-
-      const url3 = "https://localhost:44357/api/Fin/Predmet";
-        axios
-        .post(url3, data)
-        .then((result) => {
-          const predmeti= [];
-          function predmetSet(item){
-            const uniData2 = item.split("_");
-            predmeti.push({
-              value: uniData2[1]
-           })
-          }
-          const predmetData = result.data.split(";");
-          predmetData.forEach(predmetSet);
-          setlistaPredmeta(predmeti);
-        });
+      getPredmeti();
 
     }
 
@@ -115,7 +130,7 @@ export const LandingPage = (props) => {
           const items= [];
           function oglasSet(item){
             const uniData2 = item.split("_");
-            setIdPrimaoca(uniData2[16]);
+            setUserPrimaoca(uniData2[16]);
             items.push({
               naslov: uniData2[0],
               ime: uniData2[1],
@@ -153,8 +168,61 @@ export const LandingPage = (props) => {
     }
   }
 
+  function getChatFriends() {
+    const data = {
+      KorisnickoIme: UserProfile.getUser("user_name")
+    };
+    const url = "https://localhost:44357/api/Fin/PopulateChatFriends";
+    axios
+      .post(url, data)
+      .then((result) => {
+        const items= [];
+        function drugariSet(item){
+          const uniData2 = item.split("_");
+          items.push({
+            ime: uniData2[0],
+            user: uniData2[1],
+            slika: uniData2[2]
+         })
+        }
+        const uniData = result.data.split(" ");
+        console.log(result.data);
+        uniData.forEach(drugariSet);
+        setListaDrugara(items);
+      });
+    }
+
+    function fillChat(userPrim){
+      setUserPrimaoca(userPrim);
+      const data = {
+        KorisnickoIme: UserProfile.getUser("user_name"),
+        UserPrimaoca: userPrim
+      };
+      const url = "https://localhost:44357/api/Fin/PopulateChatMsgs";
+      axios
+        .post(url, data)
+        .then((result) => {
+          const items= [];
+          function porukeSet(item){
+            const uniData2 = item.split("_");
+            items.push({
+              poruka: uniData2[0],
+              user: uniData2[1],
+              slika: uniData2[2]
+           })
+          }
+          const uniData = result.data.split("|");
+          uniData.forEach(porukeSet);
+          setListaPoruka(items);
+        });
+  
+    }
+
   function openForm(idOglasa) {
+    getChatFriends();
+    fillChat(userPrimaoca);
     document.getElementById("myForm").style.display = "block";
+
   }
   
   function closeForm() {
@@ -166,27 +234,18 @@ export const LandingPage = (props) => {
 
     const data = {
       KorisnickoIme: UserProfile.getUser("user_name"),
-      IdPrimaoca: idPrimaoca,
+      UserPrimaoca: userPrimaoca,
       IdOglasa: idOglasa,
       Info: msgText
     };  
 
-    console.log(data);
-    /*const url3 = "https://localhost:44357/api/Fin/Predmet";
+    const url = "https://localhost:44357/api/Fin/CreateConvo";
       axios
-      .post(url3, data)
+      .post(url, data)
       .then((result) => {
-        const predmeti= [];
-        function predmetSet(item){
-          const uniData2 = item.split("_");
-          predmeti.push({
-            value: uniData2[1]
-         })
-        }
-        const predmetData = result.data.split(";");
-        predmetData.forEach(predmetSet);
-        setlistaPredmeta(predmeti);
-      });*/
+        getChatFriends();
+        fillChat(userPrimaoca);
+      });
 
   }
   return (
@@ -198,6 +257,7 @@ export const LandingPage = (props) => {
           <ul> 
             <li> <a href="#/" onClick={() => { navigate({ pathname: "/post" }); }}> <i class="fas fa-paper-plane"></i> Постави оглас</a> </li>
             <li><a href="#/"onClick={() => { navigate({ pathname: "/profilesetup" }); }}> Профил </a></li>
+            {UserProfile.getUser("rola") === "1" ? (<li> <a href="#/" onClick={() => { navigate({ pathname: "/admin" }); }}>Контролна табла</a> </li>) : (<li></li>)}
             <li><a href="#/"onClick={() => { UserProfile.unsetAuth(); navigate({ pathname: "/login" }); }}> Одјави се </a></li>
           </ul>
         </section>
@@ -282,9 +342,12 @@ export const LandingPage = (props) => {
         <div className="dropdown">
           {listaPredmeta
             .filter((item) => {
-              const searchTerm = translit(searchValue.toLowerCase());
-              const predmet = item.value.toLowerCase();
-
+              var searchTerm;
+              var predmet;
+              if(item.value !== undefined){
+                 searchTerm = translit(searchValue.toLowerCase());
+                 predmet = item.value.toLowerCase();
+              }else{ searchTerm = ""; predmet = "";}
               return (
                 searchTerm &&
                 predmet.startsWith(searchTerm) &&
@@ -311,63 +374,35 @@ export const LandingPage = (props) => {
         </div>
 
             <div>
-            <button class="open-button" onClick={openForm}>Chat</button>
+            <button class="open-button" onClick={openForm}>Ћаскање</button>
 
             <div class="chat-popup" id="myForm">
-              <div class="sidebar">
+            <div class="sidebar">
               <header>Моја ћаскања</header>
-              <a href="#" class="person-box">
-                <img src="#" alt="pic" />
-                <span>Kristina</span>
-              </a>
-              <a href="#" class="person-box">
-                <img src="#" alt="pic" />
-                <span>Uros</span>
-              </a>
-              <a href="#" class="person-box">
-                <img src="#" alt="pic" />
-                <span>Milan</span>
-              </a>
-              <a href="#" class="person-box">
-                <img src="#" alt="pic" />
-                <span>Švaba</span>
-              </a>
-              <a href="#" class="person-box">
-                <img src="#" alt="pic" />
-                <span>Dule</span>
-              </a>
-              <a href="#" class="person-box">
-                <img src="#" alt="pic" />
-                <span>Ekser</span>
-              </a>
-              <a href="#" class="person-box">
-                <img src="#" alt="pic" />
-                <span>Krlja</span>
-              </a>
+              {listaDrugara.map(({ ime, slika, user }) => (
+               <a href="#/" class="person-box" value={user} onClick={() => fillChat(user)}>
+                 <img src={slika} alt={ime} />
+                 <span>{ime}</span>
+               </a> 
+              ))}  
             </div>
                <form onSubmit={handleSubmitChat} class="form-container">
                <h1>Ћаскање</h1>
-
-               <div class="containerChat">
-  <img src="/w3images/bandmember.jpg" alt="Avatar" style={{width: "100%"}}/> 
-  <p>Hello. How are you today?</p>
-</div>
-
-<div class="containerChat darker">
-  <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style={{width: "100%"}}/>
-  <p>Hey! I'm fine. Thanks for asking!</p>
-</div>
-
-<div class="containerChat">
-  <img src="/w3images/bandmember.jpg" alt="Avatar" style={{width: "100%"}}/>
-  <p>Sweet! So, what do you wanna do today?</p>
-</div>
-
-<div class="containerChat darker">
-  <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style={{width: "100%"}}/>
-  <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-</div>
-
+               <div class="chatarea"> 
+               {listaPoruka.map(({ poruka, slika, user, trenutni= UserProfile.getUser("user_name")}) => {
+                if(user === trenutni){
+                  return <div class="containerChat">
+                    <img src={slika} alt={user} style={{width: "100%"}}/> 
+                    <p>{poruka}</p>
+                  </div>
+                }else{
+                  return <div class="containerChat darker">
+                    <img src={slika} alt={user} class="right" style={{width: "100%"}}/>
+                    <p>{poruka}</p>
+                  </div>
+                }
+              })}  
+                </div>
                 <textarea placeholder="Унеси поруку.." name="msg" value={msgText} onChange ={(e) => setMsgText(e.target.value)} required></textarea>
 
                 <button type="submit" class="btn">Пошаљи</button>

@@ -20,6 +20,10 @@ var UserProfile = (function() {
         document.cookie = "user_name = " + name; // Also set this in cookie/localStorage
     };
 
+    var setRola = function(name) {
+      document.cookie = "rola = " + name; // Also set this in cookie/localStorage
+  };
+
     var setAuth = function() {
         document.cookie = "authorized = true"; // Also set this in cookie/localStorage
     };
@@ -42,7 +46,8 @@ var UserProfile = (function() {
       setAuth: setAuth,
       unsetAuth: unsetAuth,
       setUni: setUni,
-      setSmer: setSmer
+      setSmer: setSmer,
+      setRola: setRola
     }
   
   })();
