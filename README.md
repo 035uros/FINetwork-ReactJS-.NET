@@ -1,11 +1,11 @@
 # FINetwork - ReactJS (.NET) app with listing and chatting features
 
-App starts with Register and Login pages, here we have all common features regarding passwords protection data storage etc.
+App starts with Register and Login pages, here we have all common features regarding password protection, data storage etc.
 
 ![login](https://github.com/035uros/FINetwork/blob/54b3b36350574966b4bc41e41d4ea715d8381b6b/presentationImgs/1.png)
 ![register](https://github.com/035uros/FINetwork/blob/54b3b36350574966b4bc41e41d4ea715d8381b6b/presentationImgs/2.png)
 
-After successful login we are redirected to Landing page.
+After successful login we are redirected to the Landing page.
 ![landing](https://github.com/035uros/FINetwork/blob/54b3b36350574966b4bc41e41d4ea715d8381b6b/presentationImgs/3.png)
 
 We have in-page view for each individual listing from database ans chat feature.
